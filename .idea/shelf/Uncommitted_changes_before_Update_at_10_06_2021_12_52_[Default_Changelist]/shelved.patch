@@ -1,0 +1,319 @@
+Index: my-app/src/redux/state.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import {DialogItemType} from \"../components/Dialogs/DialogItem/DialogItem\";\r\nimport {MessageType} from \"../components/Dialogs/Message/DialogMessages\";\r\n\r\n\r\nexport type PostsType = {\r\n    message: string,\r\n    likesCount: number,\r\n    id?: string\r\n}\r\n\r\nexport type DialogsType = {\r\n    name: string\r\n    id: string\r\n}\r\n\r\nexport type MessagesType = {\r\n    message: string\r\n    id: string\r\n}\r\n\r\nexport type MessagesPageType = {\r\n    dialogs: Array<DialogsType>\r\n    messages: Array<MessagesType>\r\n}\r\n\r\nexport type ProfilePageType = {\r\n    posts: Array<PostsType>\r\n}\r\n\r\nexport type RootStateType = {\r\n    profilePage: ProfilePageType\r\n    messagesPage: MessagesPageType\r\n}\r\n\r\nexport type stateType = {\r\n    state: RootStateType\r\n}\r\n\r\nlet state: RootStateType = {\r\n\r\n    profilePage: {\r\n        posts: [\r\n            {message: 'Hi, how are you?', likesCount:4, id: '1'},\r\n            {message: 'Its my first post', likesCount:1, id: '2'},\r\n            {message: 'yesd', likesCount:12, id: '3'},\r\n        ]\r\n    },\r\n    messagesPage: {\r\n        dialogs: [\r\n            {name: 'Victor', id: '1'},\r\n            {name: 'Anton', id: '2'},\r\n            {name: 'Andrey', id: '3'},\r\n            {name: 'Sveta', id: '4'},\r\n            {name: 'Anna', id: '5'},\r\n            {name: 'Dmitry', id: '6'},\r\n        ],\r\n        messages: [\r\n            {message: 'Hi', id: '1'},\r\n            {message: 'How are you?', id: '2'},\r\n            {message: 'fdsfdsa', id: '3'},\r\n        ]\r\n    }\r\n}\r\n\r\nexport default state
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/my-app/src/redux/state.tsx b/my-app/src/redux/state.tsx
+--- a/my-app/src/redux/state.tsx	(revision b007251cb053c59a283cd966b154394073875b5e)
++++ b/my-app/src/redux/state.tsx	(date 1623258725632)
+@@ -1,6 +1,10 @@
+ import {DialogItemType} from "../components/Dialogs/DialogItem/DialogItem";
+ import {MessageType} from "../components/Dialogs/Message/DialogMessages";
+ 
++let renderTree = () => {
++
++}
++
+ 
+ export type PostsType = {
+     message: string,
+@@ -25,6 +29,8 @@
+ 
+ export type ProfilePageType = {
+     posts: Array<PostsType>
++    newPostText: string
++    addPost?: (postMessage: string) => void
+ }
+ 
+ export type RootStateType = {
+@@ -32,9 +38,7 @@
+     messagesPage: MessagesPageType
+ }
+ 
+-export type stateType = {
+-    state: RootStateType
+-}
++
+ 
+ let state: RootStateType = {
+ 
+@@ -43,7 +47,8 @@
+             {message: 'Hi, how are you?', likesCount:4, id: '1'},
+             {message: 'Its my first post', likesCount:1, id: '2'},
+             {message: 'yesd', likesCount:12, id: '3'},
+-        ]
++        ],
++        newPostText: ''
+     },
+     messagesPage: {
+         dialogs: [
+@@ -62,4 +67,25 @@
+     }
+ }
+ 
++export const addPost = () => {
++    const newPost: PostsType = {
++        message: state.profilePage.newPostText,
++        likesCount: 0,
++        id: "4"
++    }
++
++    state.profilePage.posts.push(newPost);
++    state.profilePage.newPostText = ''
++    renderTree()
++}
++
++export const updateNewPostText = (text: string) => {
++    state.profilePage.newPostText = text;
++    renderTree()
++}
++
++export const subscribe = (observer: () => void) => {
++    renderTree = observer;
++}
++
+ export default state
+\ No newline at end of file
+Index: my-app/src/index.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React from 'react';\r\nimport ReactDOM from 'react-dom';\r\nimport './index.css';\r\nimport App from './App';\r\nimport reportWebVitals from './reportWebVitals';\r\nimport state from './redux/state'\r\n\r\n\r\n\r\nReactDOM.render(\r\n    <React.StrictMode>\r\n        <App state={state} />\r\n\r\n    </React.StrictMode>,\r\n    document.getElementById('root')\r\n);\r\n\r\n// If you want to start measuring performance in your app, pass a function\r\n// to log results (for example: reportWebVitals(console.log))\r\n// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals\r\nreportWebVitals();\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/my-app/src/index.tsx b/my-app/src/index.tsx
+--- a/my-app/src/index.tsx	(revision b007251cb053c59a283cd966b154394073875b5e)
++++ b/my-app/src/index.tsx	(date 1623258885632)
+@@ -1,21 +1,28 @@
+ import React from 'react';
+-import ReactDOM from 'react-dom';
+ import './index.css';
+-import App from './App';
+-import reportWebVitals from './reportWebVitals';
+-import state from './redux/state'
+-
++import state, {addPost, RootStateType, subscribe, updateNewPostText} from "./redux/state";
++import ReactDOM from "react-dom";
++import {BrowserRouter} from "react-router-dom";
++import App from "./App";
+ 
+-
+-ReactDOM.render(
+-    <React.StrictMode>
+-        <App state={state} />
++export const renderTree = () => {
++    ReactDOM.render(
++        <React.StrictMode>
++            <BrowserRouter>
++                <App state={state}
++                     addPost={addPost}
++                     updateNewPostText={updateNewPostText}
++                />
++            </BrowserRouter>
+ 
+-    </React.StrictMode>,
+-    document.getElementById('root')
+-);
++        </React.StrictMode>,
++        document.getElementById('root')
++    );
++}
++
++
++renderTree();
++
++subscribe(renderTree)
+ 
+-// If you want to start measuring performance in your app, pass a function
+-// to log results (for example: reportWebVitals(console.log))
+-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+-reportWebVitals();
++
+Index: my-app/src/App.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React from 'react';\r\nimport './App.css';\r\nimport Header from \"./components/Header/Header\";\r\nimport Navbar from \"./components/Navbar/navbar\";\r\nimport Profile from \"./components/Profile/profile\";\r\nimport Dialogs from \"./components/Dialogs/Dialogs\";\r\nimport {BrowserRouter, Route} from \"react-router-dom\";\r\nimport News from \"./components/News/news\";\r\nimport Music from \"./components/Music/music\";\r\nimport Settings from \"./components/Settings/settings\";\r\nimport {stateType} from \"./redux/state\";\r\n\r\n\r\nconst App = (props: stateType) => {\r\n    return (\r\n        <BrowserRouter>\r\n            <div className='app-wrapper'>\r\n                <Header/>\r\n                <Navbar/>\r\n                <div className='app-wrapper-content'>\r\n                    <Route path='/profile' render={()=> <Profile posts={props.state.profilePage.posts}/>} />\r\n                    <Route path='/dialogs' render={()=> <Dialogs dialogs={props.state.messagesPage.dialogs}\r\n                                                                 messages={props.state.messagesPage.messages}/>}/>\r\n                    <Route path='/news' component={News}/>\r\n                    <Route path='/music' component={Music}/>\r\n                    <Route path='/settings' component={Settings}/>\r\n\r\n                </div>\r\n            </div>\r\n        </BrowserRouter>\r\n\r\n    )\r\n}\r\n\r\n\r\nexport default App;\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/my-app/src/App.tsx b/my-app/src/App.tsx
+--- a/my-app/src/App.tsx	(revision b007251cb053c59a283cd966b154394073875b5e)
++++ b/my-app/src/App.tsx	(date 1623251267888)
+@@ -8,26 +8,37 @@
+ import News from "./components/News/news";
+ import Music from "./components/Music/music";
+ import Settings from "./components/Settings/settings";
+-import {stateType} from "./redux/state";
++import {RootStateType, updateNewPostText} from "./redux/state";
++
+ 
++export type StateType = {
++    state: RootStateType
++    addPost: () => void
++    updateNewPostText: (text: string) => void
++}
+ 
+-const App = (props: stateType) => {
++
++const App = (props: StateType) => {
+     return (
+-        <BrowserRouter>
+-            <div className='app-wrapper'>
+-                <Header/>
+-                <Navbar/>
+-                <div className='app-wrapper-content'>
+-                    <Route path='/profile' render={()=> <Profile posts={props.state.profilePage.posts}/>} />
+-                    <Route path='/dialogs' render={()=> <Dialogs dialogs={props.state.messagesPage.dialogs}
+-                                                                 messages={props.state.messagesPage.messages}/>}/>
+-                    <Route path='/news' component={News}/>
+-                    <Route path='/music' component={Music}/>
+-                    <Route path='/settings' component={Settings}/>
++
++        <div className='app-wrapper'>
++            <Header/>
++            <Navbar/>
++            <div className='app-wrapper-content'>
++                <Route path='/profile' render={() => <Profile posts={props.state.profilePage.posts}
++                                                              newPostText={props.state.profilePage.newPostText}
++                                                              addPost={props.addPost}
++                                                              updateNewPostText={props.updateNewPostText}
++                />}/>
++                <Route path='/dialogs' render={() => <Dialogs dialogs={props.state.messagesPage.dialogs}
++                                                              messages={props.state.messagesPage.messages}/>}/>
++                <Route path='/news' component={News}/>
++                <Route path='/music' component={Music}/>
++                <Route path='/settings' component={Settings}/>
+ 
+-                </div>
+-            </div>
+-        </BrowserRouter>
++            </div>
++        </div>
++
+ 
+     )
+ }
+Index: my-app/src/components/Profile/profile.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React from \"react\";\r\nimport classes from './profile.module.css';\r\nimport MyPosts from \"./MyPosts/MyPosts\";\r\nimport ProfileInfo from \"./ProfileInfo/profileInfo\";\r\nimport {ProfilePageType} from \"../../redux/state\";\r\n\r\n\r\n\r\nexport const Profile = (props: ProfilePageType  ) => {\r\n    return (\r\n        <div>\r\n            <ProfileInfo />\r\n            <MyPosts posts={props.posts}/>\r\n        </div>)\r\n}\r\nexport default Profile;
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/my-app/src/components/Profile/profile.tsx b/my-app/src/components/Profile/profile.tsx
+--- a/my-app/src/components/Profile/profile.tsx	(revision b007251cb053c59a283cd966b154394073875b5e)
++++ b/my-app/src/components/Profile/profile.tsx	(date 1623250416322)
+@@ -1,16 +1,18 @@
+ import React from "react";
+-import classes from './profile.module.css';
+-import MyPosts from "./MyPosts/MyPosts";
++import MyPosts, {MyPostsType} from "./MyPosts/MyPosts";
+ import ProfileInfo from "./ProfileInfo/profileInfo";
+-import {ProfilePageType} from "../../redux/state";
++import {ProfilePageType, updateNewPostText} from "../../redux/state";
+ 
+ 
+-
+-export const Profile = (props: ProfilePageType  ) => {
++export const Profile = (props: MyPostsType) => {
+     return (
+         <div>
+-            <ProfileInfo />
+-            <MyPosts posts={props.posts}/>
++            <ProfileInfo/>
++            <MyPosts posts={props.posts}
++                     newPostText={props.newPostText}
++                     addPost={props.addPost}
++                     updateNewPostText={props.updateNewPostText}
++            />
+         </div>)
+ }
+ export default Profile;
+\ No newline at end of file
+Index: my-app/src/components/Profile/MyPosts/MyPosts.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React from \"react\";\r\nimport classes from './MyPosts.module.css';\r\nimport MyPost from \"./Post/MyPost\";\r\nimport {ProfilePageType} from \"../../../redux/state\";\r\n\r\n\r\nconst MyPosts= (props: ProfilePageType) => {\r\n\r\n\r\n    let postsElements = props.posts.map((t) => <MyPost message={t.message} likesCount={t.likesCount}/>)\r\n    return (\r\n        <div className={classes.postsBlock}>\r\n            My post\r\n            <div className={classes.item}>New post</div>\r\n            <div>\r\n                <div>\r\n                    <textarea>  </textarea>\r\n                </div>\r\n                <div>\r\n                    <button>Add post</button>\r\n                </div>\r\n            </div>\r\n            <div>\r\n                {postsElements}\r\n            </div>\r\n        </div>\r\n    )\r\n}\r\nexport default MyPosts;
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/my-app/src/components/Profile/MyPosts/MyPosts.tsx b/my-app/src/components/Profile/MyPosts/MyPosts.tsx
+--- a/my-app/src/components/Profile/MyPosts/MyPosts.tsx	(revision b007251cb053c59a283cd966b154394073875b5e)
++++ b/my-app/src/components/Profile/MyPosts/MyPosts.tsx	(date 1623251824213)
+@@ -1,23 +1,44 @@
+-import React from "react";
++import React, {ChangeEventHandler} from "react";
+ import classes from './MyPosts.module.css';
+ import MyPost from "./Post/MyPost";
+-import {ProfilePageType} from "../../../redux/state";
++import {PostsType, ProfilePageType, updateNewPostText} from "../../../redux/state";
++
+ 
++export type MyPostsType = {
++    posts: Array<PostsType>
++    newPostText: string
++    addPost: () => void
++    updateNewPostText: (text: string) => void
++}
+ 
+-const MyPosts= (props: ProfilePageType) => {
++const MyPosts = (props: MyPostsType) => {
+ 
++    let postsElements = props.posts.map((t) => <MyPost message={t.message}
++                                                       likesCount={t.likesCount}/>)
+ 
+-    let postsElements = props.posts.map((t) => <MyPost message={t.message} likesCount={t.likesCount}/>)
++
++    let addPost = () => {
++
++        if (props.newPostText) {
++            props.addPost();
++        }
++    };
++
++    let onPostChange = (text: string) => {
++        props.updateNewPostText(text)
++    }
++
+     return (
+         <div className={classes.postsBlock}>
+             My post
+             <div className={classes.item}>New post</div>
+             <div>
+                 <div>
+-                    <textarea>  </textarea>
++                    <textarea onChange={(e) => onPostChange(e.currentTarget.value)}
++                              value={props.newPostText}>  </textarea>
+                 </div>
+                 <div>
+-                    <button>Add post</button>
++                    <button onClick={addPost}>Add post</button>
+                 </div>
+             </div>
+             <div>
+Index: my-app/src/components/Profile/MyPosts/Post/MyPost.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React from \"react\";\r\nimport classes from './MyPost.module.css';\r\nimport {PostsType} from \"../../../../redux/state\";\r\n\r\n\r\nconst MyPost = (props: PostsType) => {\r\n    return (\r\n        <div>\r\n\r\n            <div className={classes.content}>\r\n                {props.message}\r\n            </div>\r\n            <span>Likes</span> {props.likesCount}\r\n\r\n\r\n        </div>\r\n    )\r\n}\r\nexport default MyPost;
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/my-app/src/components/Profile/MyPosts/Post/MyPost.tsx b/my-app/src/components/Profile/MyPosts/Post/MyPost.tsx
+--- a/my-app/src/components/Profile/MyPosts/Post/MyPost.tsx	(revision b007251cb053c59a283cd966b154394073875b5e)
++++ b/my-app/src/components/Profile/MyPosts/Post/MyPost.tsx	(date 1621593478519)
+@@ -6,13 +6,10 @@
+ const MyPost = (props: PostsType) => {
+     return (
+         <div>
+-
+             <div className={classes.content}>
+                 {props.message}
+             </div>
+             <span>Likes</span> {props.likesCount}
+-
+-
+         </div>
+     )
+ }
