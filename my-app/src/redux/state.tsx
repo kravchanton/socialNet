@@ -1,7 +1,9 @@
-import {DialogItemType} from "../components/Dialogs/DialogItem/DialogItem";
-import {MessageType} from "../components/Dialogs/Message/DialogMessages";
 
+import {ProfilePageType} from "../components/Profile/profile";
 
+let rerenderEntireTree = () => {
+
+}
 export type PostsType = {
     message: string,
     likesCount: number,
@@ -23,9 +25,7 @@ export type MessagesPageType = {
     messages: Array<MessagesType>
 }
 
-export type ProfilePageType = {
-    posts: Array<PostsType>
-}
+
 
 export type RootStateType = {
     profilePage: ProfilePageType
@@ -34,8 +34,17 @@ export type RootStateType = {
 
 export type stateType = {
     state: RootStateType
+    addPost: (postMessage: string) => void
 }
+export let addPost = (postMessage: string) => {
+    let newPost: PostsType = {
+        message: postMessage,
+        likesCount: 0,
+        id: "5",
+    }
 
+    state.profilePage.posts.push(newPost);
+}
 let state: RootStateType = {
 
     profilePage: {
@@ -60,6 +69,9 @@ let state: RootStateType = {
             {message: 'fdsfdsa', id: '3'},
         ]
     }
+}
+export const subscribe = (observer: () => void) => {
+    rerenderEntireTree = observer
 }
 
 export default state

@@ -10,11 +10,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/my-app" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="1rtshw86hs4nyPw68BdiITdSQ7y" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -73,6 +70,8 @@
       <workItem from="1621877571973" duration="13908000" />
       <workItem from="1623239092548" duration="10019000" />
       <workItem from="1623316972308" duration="1822000" />
+      <workItem from="1623318884051" duration="168000" />
+      <workItem from="1624201225003" duration="5109000" />
     </task>
     <servers />
   </component>
