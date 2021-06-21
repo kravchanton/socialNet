@@ -1,21 +1,27 @@
-import React, {useState} from "react";
+import React, {ChangeEvent, useState} from "react";
 import classes from './MyPosts.module.css';
 import MyPost from "./Post/MyPost";
 import {ProfilePageType} from "../profile";
-import {addPost} from "../../../redux/state";
 
 
+const MyPosts = (props: ProfilePageType) => {
 
-const MyPosts= (props: ProfilePageType) => {
 
+    let onPostChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
 
-    let [value, setValue] = useState("")
-    let addPost = () => {
-        if (props.addPost) {
-            props.addPost(value);
+        if (props.dispatch) {
+
+            let action = {type: "UPDATE-NEW-POST-TEXT", text: e.currentTarget.value };
+            props.dispatch(action)
         }
-        setValue('')
     }
+    let addPost = () => {
+        if (props.dispatch) {
+            props.dispatch({type: "ADD-POST"})
+        }
+
+    }
+
     let postsElements = props.posts.map((t) => <MyPost message={t.message} likesCount={t.likesCount}/>)
     return (
         <div className={classes.postsBlock}>
@@ -23,7 +29,7 @@ const MyPosts= (props: ProfilePageType) => {
             <div className={classes.item}>New post</div>
             <div>
                 <div>
-                    <textarea onChange={(e) => {setValue(e.currentTarget.value)}}  value={value}>  </textarea>
+                    <textarea onChange={onPostChange} value={props.newPostText}>  </textarea>
                 </div>
                 <div>
                     <button onClick={addPost}>Add post</button>

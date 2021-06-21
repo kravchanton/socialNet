@@ -8,20 +8,24 @@ import {BrowserRouter, Route} from "react-router-dom";
 import News from "./components/News/news";
 import Music from "./components/Music/music";
 import Settings from "./components/Settings/settings";
-import {stateType} from "./redux/state";
+import { StoreType} from "./redux/state";
 
 
-const App = (props: stateType) => {
+const App: React.FC<StoreType> = (props) => {
+
+    const state = props.store.getState();
     return (
         <BrowserRouter>
             <div className='app-wrapper'>
                 <Header/>
                 <Navbar/>
                 <div className='app-wrapper-content'>
-                    <Route path='/profile' render={() => <Profile posts={props.state.profilePage.posts}
-                                                                  addPost={props.addPost}/>}/>
-                    <Route path='/dialogs' render={() => <Dialogs dialogs={props.state.messagesPage.dialogs}
-                                                                  messages={props.state.messagesPage.messages}/>}/>
+                    <Route path='/profile' render={() => <Profile posts={state.profilePage.posts}
+                                                                  newPostText={state.profilePage.newPostText}
+                                                                  dispatch={props.store.dispatch.bind(props.store)}
+                                                                  />}/>
+                    <Route path='/dialogs' render={() => <Dialogs dialogs={state.messagesPage.dialogs}
+                                                                  messages={state.messagesPage.messages}/>}/>
                     <Route path='/news' component={News}/>
                     <Route path='/music' component={Music}/>
                     <Route path='/settings' component={Settings}/>
