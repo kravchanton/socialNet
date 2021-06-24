@@ -1,4 +1,18 @@
 import {ProfilePageType} from "../components/Profile/profile";
+import {MessagesPageType} from "../components/Dialogs/Dialogs";
+import {
+    AddActionType,
+    addPostActionCreator,
+    profileReducer,
+    UpdateActionType,
+    updateNewPostActionCreator
+} from "./profile_reducer";
+import {
+    addMessageActionCreator,
+    AddMessageActionType,
+    dialogsReducer, UpdateMessageActionType,
+    updateNewMessageActionCreator
+} from "./dialogs_reducer";
 
 export type PostsType = {
     message: string,
@@ -16,30 +30,17 @@ export type MessagesType = {
     id: string
 }
 
-export type MessagesPageType = {
-    dialogs: Array<DialogsType>
-    messages: Array<MessagesType>
-}
-
-
 export type RootStateType = {
     profilePage: ProfilePageType
     messagesPage: MessagesPageType
 }
-export type AddActionType = {
-    type: "ADD-POST"
-}
 
-export type UpdateActionType = {
-    type: "UPDATE-NEW-POST-TEXT"
-    text: string
-}
 export type StateType = {
     _state: RootStateType
     rerenderEntireTree: () => void
     subscribe: (observer: () => void) => void
     getState: () => RootStateType
-    dispatch: (action: AddActionType | UpdateActionType) => void
+    dispatch: (action: ActionType) => void
 }
 export type StoreType = {
     store: StateType
@@ -68,7 +69,8 @@ export let store: StateType = {
                 {message: 'Hi', id: '1'},
                 {message: 'How are you?', id: '2'},
                 {message: 'fdsfdsa', id: '3'},
-            ]
+            ],
+            newMessageText: '',
         }
     },
     rerenderEntireTree() {
@@ -82,22 +84,18 @@ export let store: StateType = {
     },
 
     dispatch(action) {
-        if(action.type === "ADD-POST") {
-            let newPost: PostsType = {
-                message: this._state.profilePage.newPostText,
-                likesCount: 0,
-                id: "5",
-            }
-            this._state.profilePage.posts.push(newPost);
-            this._state.profilePage.newPostText = ""
-            this.rerenderEntireTree()
-        } else if(action.type === "UPDATE-NEW-POST-TEXT") {
-            this._state.profilePage.newPostText = action.text;
-            this.rerenderEntireTree()
-        }
+        store._state.profilePage = profileReducer(store._state.profilePage, action)
+        store._state.messagesPage = dialogsReducer(store._state.messagesPage, action)
+        this.rerenderEntireTree()
     }
 
 }
+
+
+export type ActionType = AddActionType | AddMessageActionType | UpdateActionType | UpdateMessageActionType
+
+
+
 
 
 export default store

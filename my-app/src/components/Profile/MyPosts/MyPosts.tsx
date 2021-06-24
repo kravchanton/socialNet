@@ -2,6 +2,8 @@ import React, {ChangeEvent, useState} from "react";
 import classes from './MyPosts.module.css';
 import MyPost from "./Post/MyPost";
 import {ProfilePageType} from "../profile";
+import {addPostActionCreator, updateNewPostActionCreator} from "../../../redux/profile_reducer";
+
 
 
 const MyPosts = (props: ProfilePageType) => {
@@ -11,13 +13,12 @@ const MyPosts = (props: ProfilePageType) => {
 
         if (props.dispatch) {
 
-            let action = {type: "UPDATE-NEW-POST-TEXT", text: e.currentTarget.value };
-            props.dispatch(action)
+            props.dispatch(updateNewPostActionCreator(e.currentTarget.value))
         }
     }
     let addPost = () => {
         if (props.dispatch) {
-            props.dispatch({type: "ADD-POST"})
+            props.dispatch(addPostActionCreator())
         }
 
     }
