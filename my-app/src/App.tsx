@@ -8,8 +8,12 @@ import {BrowserRouter, Route} from "react-router-dom";
 import News from "./components/News/news";
 import Music from "./components/Music/music";
 import Settings from "./components/Settings/settings";
-import { StoreType} from "./redux/state";
+import {StateType} from "./redux/store";
 
+
+export type StoreType = {
+    store: StateType
+}
 
 const App: React.FC<StoreType> = (props) => {
 

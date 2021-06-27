@@ -2,7 +2,7 @@ import React from "react";
 import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./ProfileInfo/profileInfo";
 import {AddActionType,UpdateActionType} from "../../redux/profile_reducer";
-import {PostsType} from "../../redux/state";
+import {PostsType} from "../../redux/store";
 
 export type ProfilePageType = {
     posts: Array<PostsType>

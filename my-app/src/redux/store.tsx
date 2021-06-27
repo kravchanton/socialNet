@@ -36,17 +36,14 @@ export type RootStateType = {
 }
 
 export type StateType = {
-    _state: RootStateType
-    rerenderEntireTree: () => void
+    _state?: RootStateType
+    rerenderEntireTree?: () => void
     subscribe: (observer: () => void) => void
     getState: () => RootStateType
     dispatch: (action: ActionType) => void
 }
-export type StoreType = {
-    store: StateType
-}
 
-export let store: StateType = {
+/*export let store: StateType = {
     _state: {
         profilePage: {
             posts: [
@@ -89,7 +86,7 @@ export let store: StateType = {
         this.rerenderEntireTree()
     }
 
-}
+}*/
 
 
 export type ActionType = AddActionType | AddMessageActionType | UpdateActionType | UpdateMessageActionType
@@ -98,4 +95,3 @@ export type ActionType = AddActionType | AddMessageActionType | UpdateActionType
 
 
 
-export default store

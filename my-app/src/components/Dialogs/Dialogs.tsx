@@ -3,7 +3,7 @@ import s from './Dialogs.module.css';
 import {NavLink} from "react-router-dom";
 import DialogItem, {DialogItemType} from "./DialogItem/DialogItem";
 import Message from "./Message/DialogMessages";
-import {ActionType, DialogsType, MessagesType} from "../../redux/state";
+import {ActionType, DialogsType, MessagesType} from "../../redux/store";
 import {addMessageActionCreator, updateNewMessageActionCreator} from "../../redux/dialogs_reducer";
 
 export type MessagesPageType = {
