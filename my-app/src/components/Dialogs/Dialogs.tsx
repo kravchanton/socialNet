@@ -13,18 +13,21 @@ export type MessagesPageType = {
     dispatch?: (action: ActionType) => void
 }
 
-const Dialogs = (props: MessagesPageType ) => {
-    let onMessageChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+export type DialogsPropsType = {
+    onNewMessageChange: (text: string) => void
+    addMessage: () => void
+    dialogs: Array<DialogsType>
+    messages: Array<MessagesType>
+    newMessageText: string
+}
 
-        if (props.dispatch) {
+const Dialogs = (props: DialogsPropsType ) => {
+    let onChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
 
-            props.dispatch(updateNewMessageActionCreator(e.currentTarget.value))
-        }
+        props.onNewMessageChange(e.currentTarget.value)
     }
-    let addMessage = () => {
-        if (props.dispatch) {
-            props.dispatch(addMessageActionCreator())
-        }
+    let onAddMessage = () => {
+       props.addMessage()
 
     }
     let dialogsElements = props.dialogs.map((t) => <DialogItem name={t.name} id={t.id}/>)
@@ -37,9 +40,9 @@ const Dialogs = (props: MessagesPageType ) => {
             <div className={s.messages}>
                 {messegesElements}
 
-                <textarea onChange={onMessageChange} value={props.newMessageText}></textarea>
+                <textarea onChange={onChange} value={props.newMessageText}></textarea>
 
-                <button onClick={addMessage}>Add message</button>
+                <button onClick={onAddMessage}>Add message</button>
 
             </div>
         </div>)
