@@ -1,5 +1,5 @@
 import {ProfilePageType} from "../components/Profile/profile";
-import {MessagesPageType} from "../components/Dialogs/Dialogs";
+import {DialogsPropsType, MessagesPageType} from "../components/Dialogs/Dialogs";
 import {
     AddActionType,
     addPostActionCreator,
@@ -32,7 +32,7 @@ export type MessagesType = {
 
 export type RootStateType = {
     profilePage: ProfilePageType
-    messagesPage: MessagesPageType
+    messagesPage: DialogsPropsType
 }
 
 export type StateType = {

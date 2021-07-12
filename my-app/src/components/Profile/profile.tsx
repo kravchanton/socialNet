@@ -3,7 +3,6 @@ import ProfileInfo from "./ProfileInfo/profileInfo";
 import {AddActionType,UpdateActionType} from "../../redux/profile_reducer";
 import {PostsType} from "../../redux/store";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
-import {StoreType} from "../../App";
 
 export type ProfilePageType = {
     posts: Array<PostsType>
