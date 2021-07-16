@@ -13,6 +13,7 @@ import {
     dialogsReducer, UpdateMessageActionType,
     updateNewMessageActionCreator
 } from "./dialogs_reducer";
+import {UsersPropsType} from "./users_reducer";
 
 export type PostsType = {
     message: string,
@@ -33,6 +34,7 @@ export type MessagesType = {
 export type RootStateType = {
     profilePage: ProfilePageType
     messagesPage: DialogsPropsType
+    usersPage: UsersPropsType
 }
 
 export type StateType = {

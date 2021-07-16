@@ -1,9 +1,6 @@
-import React, {ChangeEvent, useState} from "react";
-import MyPost from "./Post/MyPost";
+import React from "react";
 import {MyPosts, MyPostsPropsType} from "./MyPosts"
-import {ProfilePageType} from "../profile";
 import {addPostActionCreator, updateNewPostActionCreator} from "../../../redux/profile_reducer";
-import StoreContext from "../../../StoreContext";
 import {connect} from "react-redux";
 import {RootStateType} from "../../../redux/store";
 
