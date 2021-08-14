@@ -5,11 +5,14 @@ import {addMessageActionCreator, updateNewMessageActionCreator} from "../../redu
 
 import {connect} from "react-redux";
 import Users from "./Users";
-import {followAC, setUsersAC, unFollowAC, UserType} from "../../redux/users_reducer";
+import {followAC, setUsersAC, unFollowAC, UsersPropsType, UserType} from "../../redux/users_reducer";
+import {AppStateType} from "../../redux/redux-store";
 
+type MapStatePropsType = {
+    usersPage: UsersPropsType
+}
 
-
-export const mapStateToProps = (state: RootStateType) => {
+export const mapStateToProps = (state: AppStateType) => {
     return {
         users: state.usersPage.users
     }
@@ -24,7 +27,7 @@ export const mapDispatchToProps = (dispatch: any) => {
         unfollow: (userID: string) => {
             dispatch(unFollowAC(userID))
         },
-        setusers: (users: UserType[]) => {
+        setUsers: (users: UserType[]) => {
             dispatch(setUsersAC(users))
         }
     }

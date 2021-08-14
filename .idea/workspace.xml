@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="75b19c70-7759-4a19-a490-1f6a42319e81" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +42,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/my-app/src/redux" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -76,8 +82,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Node.js.mainForStudents.js" />
         <item itemvalue="npm.start" />
+        <item itemvalue="Node.js.mainForStudents.js" />
       </list>
     </recent_temporary>
   </component>
@@ -107,7 +113,9 @@
       <workItem from="1626111334196" duration="1281000" />
       <workItem from="1626114512972" duration="602000" />
       <workItem from="1626118782445" duration="2445000" />
-      <workItem from="1626441388849" duration="12624000" />
+      <workItem from="1626441388849" duration="13338000" />
+      <workItem from="1628630107292" duration="7719000" />
+      <workItem from="1628784782516" duration="7294000" />
     </task>
     <servers />
   </component>

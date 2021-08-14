@@ -4,17 +4,18 @@ export type UsersPropsType = {
     users: Array<UserType>
 }
 export type UserType = {
+    name: string
     id: string
-    photoURL: string
+    uniqueUrlName: any,
+    photos: PhotosType
+    status: any
     followed: boolean
-    fullName: string
-    status: string
-    location: LocationType
 
 }
-export type LocationType = {
-    country: string
-    city: string
+
+export type PhotosType = {
+    small: any
+    large: any
 }
 export type FollowActionType = ReturnType<typeof followAC>
 export type UnFollowActionType = ReturnType<typeof unFollowAC>
@@ -30,8 +31,8 @@ export const setUsersAC = (users: UserType[]) => {
     return {type: "SET-USERS", users} as const
 }
 
-let initialState = {
-    users: [ ]
+let initialState: UsersPropsType= {
+    users: []
 
 }
 
@@ -66,4 +67,4 @@ export const usersReducer = (state: UsersPropsType = initialState, action: Users
             return state
     }
 }
-type UsersActionType = FollowActionType | UnFollowActionType | SetUsersActionType
+export type UsersActionType = FollowActionType | UnFollowActionType | SetUsersActionType
