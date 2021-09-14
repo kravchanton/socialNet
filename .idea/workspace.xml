@@ -42,7 +42,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/my-app/src/redux" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/my-app/src/components/Users" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -54,14 +54,17 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\react\samurai\my-app\src\redux" />
       <recent name="F:\react\samurai\my-app\src\components\Users" />
+      <recent name="F:\react\samurai\my-app\src\redux" />
       <recent name="F:\react\samurai\my-app\src\components\Dialogs" />
       <recent name="F:\react\samurai\my-app\src\components\Profile\MyPosts" />
       <recent name="F:\react\js_sunday" />
     </key>
     <key name="es6.move.members.recent.items">
       <recent name="F:\react\samurai\my-app\src\render.tsx" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\react\samurai\my-app\src\assets\images" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.mainForStudents.js">
@@ -117,12 +120,27 @@
       <workItem from="1629214210184" duration="151000" />
       <workItem from="1631306926753" duration="598000" />
       <workItem from="1631383790001" duration="5061000" />
-      <workItem from="1631464207106" duration="6982000" />
+      <workItem from="1631464207106" duration="7180000" />
+      <workItem from="1631539746041" duration="4314000" />
+      <workItem from="1631570306724" duration="2875000" />
+      <workItem from="1631613592761" duration="4122000" />
     </task>
+    <task id="LOCAL-00001" summary="add pagination users">
+      <created>1631538032225</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1631538032225</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add pagination users" />
+    <option name="LAST_COMMIT_MESSAGE" value="add pagination users" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -131,6 +149,10 @@
           <url>file://$PROJECT_DIR$/my-app/src/redux/store.tsx</url>
           <line>47</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/my-app/src/components/Users/Users.tsx</url>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
