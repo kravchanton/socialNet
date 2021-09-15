@@ -42,7 +42,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/my-app/src/components/Users" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/my-app/src/components/Profile" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -54,11 +54,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\react\samurai\my-app\src\components\Profile" />
       <recent name="F:\react\samurai\my-app\src\components\Users" />
       <recent name="F:\react\samurai\my-app\src\redux" />
       <recent name="F:\react\samurai\my-app\src\components\Dialogs" />
       <recent name="F:\react\samurai\my-app\src\components\Profile\MyPosts" />
-      <recent name="F:\react\js_sunday" />
     </key>
     <key name="es6.move.members.recent.items">
       <recent name="F:\react\samurai\my-app\src\render.tsx" />
@@ -123,7 +123,8 @@
       <workItem from="1631464207106" duration="7180000" />
       <workItem from="1631539746041" duration="4314000" />
       <workItem from="1631570306724" duration="2875000" />
-      <workItem from="1631613592761" duration="4122000" />
+      <workItem from="1631613592761" duration="9768000" />
+      <workItem from="1631726998886" duration="2350000" />
     </task>
     <task id="LOCAL-00001" summary="add pagination users">
       <created>1631538032225</created>
@@ -132,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631538032225</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add preloader">
+      <created>1631647865368</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1631647865368</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,7 +148,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add pagination users" />
-    <option name="LAST_COMMIT_MESSAGE" value="add pagination users" />
+    <MESSAGE value="add preloader" />
+    <option name="LAST_COMMIT_MESSAGE" value="add preloader" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
