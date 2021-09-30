@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75b19c70-7759-4a19-a490-1f6a42319e81" name="Default Changelist" comment="add preloader">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="75b19c70-7759-4a19-a490-1f6a42319e81" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -127,7 +124,7 @@
       <workItem from="1631613592761" duration="9768000" />
       <workItem from="1631726998886" duration="3367000" />
       <workItem from="1631877312191" duration="2898000" />
-      <workItem from="1631982108914" duration="3775000" />
+      <workItem from="1631982108914" duration="3933000" />
     </task>
     <task id="LOCAL-00001" summary="add pagination users">
       <created>1631538032225</created>
@@ -150,7 +147,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631732832080</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="withRouter">
+      <created>1631995154798</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1631995154798</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,7 +164,8 @@
     <MESSAGE value="add pagination users" />
     <MESSAGE value="add preloader" />
     <MESSAGE value="added a profile" />
-    <option name="LAST_COMMIT_MESSAGE" value="added a profile" />
+    <MESSAGE value="withRouter" />
+    <option name="LAST_COMMIT_MESSAGE" value="withRouter" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
