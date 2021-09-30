@@ -11,7 +11,8 @@ import Settings from "./components/Settings/settings";
 import {StateType} from "./redux/store";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
-import Users from "./components/Users/Users";
+import ProfileContainer from "./components/Profile/profileContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
 
 
 export type StoreType = {
@@ -20,13 +21,14 @@ export type StoreType = {
 
 const App= () => {
 
+
     return (
         <BrowserRouter>
             <div className='app-wrapper'>
-                <Header/>
+                <HeaderContainer/>
                 <Navbar/>
                 <div className='app-wrapper-content'>
-                    <Route path='/profile' render={() => <Profile/>}/>
+                    <Route path='/profile/:userId' render={() => <ProfileContainer/>}/>
                     <Route path='/dialogs' render={() => <DialogsContainer/>}/>
                     <Route path='/users' render={() => <UsersContainer/>}/>
                     <Route path='/news' component={News}/>

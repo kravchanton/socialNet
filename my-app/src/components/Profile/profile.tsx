@@ -10,13 +10,35 @@ export type ProfilePageType = {
     addPost?: () => void
     updateNewPostText?: (text: string) => void
     dispatch?: (action: AddActionType | UpdateActionType) => void
+    profile: any
 
 }
+export type ProfileType = {
+    aboutMe: string
+    contacts: {
+        facebook: string
+        website: string
+        vk:string
+        twitter: string
+        instagram: string
+        youtube: string
+        github: string
+        mainLink: string
+    }
+    lookingForAJob: boolean
+    lookingForAJobDescription: string
+    fullName: string
+    userId: number
+    photos: {
+        small: string
+        large: string
+    }
+}
 
-export const Profile = () => {
+export const Profile = (props: ProfilePageType) => {
     return (
         <div>
-            <ProfileInfo />
+            <ProfileInfo profile={props.profile}/>
             <MyPostsContainer/>
         </div>)
 }
