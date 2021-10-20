@@ -19,7 +19,7 @@ export type DialogsPropsType = {
     dialogs: Array<DialogsType>
     messages: Array<MessagesType>
     newMessageText: string
-    isAuth: boolean
+
 }
 
 const Dialogs = (props: DialogsPropsType) => {
@@ -34,7 +34,6 @@ const Dialogs = (props: DialogsPropsType) => {
     let dialogsElements = props.dialogs.map((t) => <DialogItem name={t.name} id={t.id}/>)
     let messegesElements = props.messages.map((t) => <Message message={t.message}/>)
 
-    if (!props.isAuth) return <Redirect to={'/login'}/>
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItem}>

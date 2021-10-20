@@ -35,7 +35,8 @@ export type ProfileType = {
     }
 }
 
-export const Profile = (props: ProfilePageType) => {
+export const Profile = (props: any) => {
+debugger
     return (
         <div>
             <ProfileInfo profile={props.profile}/>

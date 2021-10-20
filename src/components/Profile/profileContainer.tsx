@@ -4,14 +4,14 @@ import Profile, {ProfilePageType, ProfileType} from "./profile";
 import axios from "axios";
 import {connect} from "react-redux";
 import {AppStateType} from "../../redux/redux-store";
-import {RouteComponentProps, withRouter} from "react-router-dom";
+import {Redirect, RouteComponentProps, withRouter} from "react-router-dom";
 import {usersAPI} from "../../api/api";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import Dialogs from "../Dialogs/Dialogs";
 
 
 
-export type MapStateToPropsType = {
-    profile: ProfileType
-}
+
 
 type MapDispatchPropsType = {
     getProfile: (userId: number) => void
@@ -38,19 +38,17 @@ class ProfileContainerAPI extends React.Component<PropsType, any> {
     }
 
     render() {
-
-        // @ts-ignore
-        return <Profile {...this.props} profile={this.props.profile}/>
+        return <Profile {...this.props} profile={this.props.profile} />
     }
 
 }
 
+let authRedirectComponent = withAuthRedirect(ProfileContainerAPI)
 
-
-let mapStateToProps = (state: AppStateType): MapStateToPropsType => ({
-    profile: state.profilePage.profile
+let mapStateToProps = (state: AppStateType) => ({
+    profile: state.profilePage.profile,
 })
 
-let WithUrlDataContainerComponent = withRouter(ProfileContainerAPI)
+let WithUrlDataContainerComponent = withRouter(authRedirectComponent)
 const ProfileContainer = connect(mapStateToProps, {getProfile})(WithUrlDataContainerComponent)
 export default ProfileContainer
