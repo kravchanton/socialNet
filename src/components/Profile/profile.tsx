@@ -11,6 +11,7 @@ export type ProfilePageType = {
     updateNewPostText?: (text: string) => void
     dispatch?: (action: AddActionType | UpdateActionType) => void
     profile: any
+    status: string
 
 }
 export type ProfileType = {
@@ -36,10 +37,9 @@ export type ProfileType = {
 }
 
 export const Profile = (props: any) => {
-debugger
     return (
         <div>
-            <ProfileInfo profile={props.profile}/>
+            <ProfileInfo profile={props.profilePage.profile} status={props.profilePage.status} updateStatus={props.updateStatus}/>
             <MyPostsContainer/>
         </div>)
 }

@@ -5,13 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81616f40-cdc2-4bd7-a697-93331444d1c6" name="Default Changelist" comment="adding hoc for autorizate">
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hoc/withAuthRedirect.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileStatus.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/api.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Dialogs/DialogsContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/DialogsContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar/navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/profileInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/profileInfo.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Profile/profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/profile.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Profile/profileContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/profileContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hoc/withAuthRedirect.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/hoc/withAuthRedirect.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/profile_reducer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/profile_reducer.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +120,9 @@
       <workItem from="1634152715902" duration="442000" />
       <workItem from="1634153176571" duration="2068000" />
       <workItem from="1634500451339" duration="637000" />
-      <workItem from="1634715593059" duration="4624000" />
+      <workItem from="1634715593059" duration="9290000" />
+      <workItem from="1634754362589" duration="6264000" />
+      <workItem from="1635008206894" duration="899000" />
     </task>
     <task id="LOCAL-00001" summary="adding authorization">
       <created>1633026320133</created>
@@ -139,7 +145,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634152910398</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="adding hoc for autorizate">
+      <created>1634725971256</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1634725971256</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -1,13 +1,14 @@
 import {PostsType} from "./store";
 import {ProfilePageType} from "../components/Profile/profile";
 import React from "react";
-import {usersAPI} from "../api/api";
+import {profileAPI, usersAPI} from "../api/api";
 import {setToggleIsFollowingProgress, unFollowAC} from "./users_reducer";
 
 
 export type AddActionType = ReturnType<typeof addPostActionCreator>
 export type UpdateActionType = ReturnType<typeof updateNewPostActionCreator>
 export type SetUserProfileType = ReturnType<typeof setUserProfile>
+export type GetStatusProfileType = ReturnType<typeof getStatusProfile>
 
 export const addPostActionCreator = () => {
     return {type: "ADD-POST"} as const
@@ -18,6 +19,10 @@ export const updateNewPostActionCreator = (text: string) => {
 export const setUserProfile = (profile: any) => {
     return {type: "SET-USER-PROFILE", profile} as const
 }
+export const getStatusProfile = (status: string) => {
+    return {type: "GET-STATUS", status} as const
+}
+
 
 let initialState = {
     posts: [
@@ -26,7 +31,8 @@ let initialState = {
         {message: 'yesd', likesCount: 12, id: '3'},
     ],
     newPostText: '',
-    profile: {}
+    profile: {},
+    status: ''
 }
 
 export const profileReducer = (state: ProfilePageType = initialState, action: ActionType): ProfilePageType => {
@@ -48,18 +54,40 @@ export const profileReducer = (state: ProfilePageType = initialState, action: Ac
         case "SET-USER-PROFILE": {
             return {...state, profile: action.profile}
         }
+        case "GET-STATUS": {
+            return {...state, status: action.status}
+
+        }
         default:
             return state
     }
 }
 
-export type ActionType = AddActionType | SetUserProfileType | UpdateActionType
+export type ActionType = AddActionType | SetUserProfileType | UpdateActionType | GetStatusProfileType
 
 export const getProfile = (userId: number) => {
     return (dispatch: any) => {
         usersAPI.getProfile(userId).then(response => {
             dispatch(setUserProfile(response))
 
+        })
+    }
+}
+
+export const getStatus = (userId: number) => {
+    return (dispatch: any) => {
+        profileAPI.getStatus(userId).then(response => {
+            dispatch(getStatusProfile(response))
+
+        })
+    }
+}
+export const updateStatus = (status: string) => {
+    return (dispatch: any) => {
+        profileAPI.updateStatus(status).then(response => {
+            if (response.resultCode === 0) {
+                dispatch(getStatusProfile(status))
+            }
         })
     }
 }
