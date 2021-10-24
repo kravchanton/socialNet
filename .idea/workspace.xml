@@ -4,18 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81616f40-cdc2-4bd7-a697-93331444d1c6" name="Default Changelist" comment="adding hoc for autorizate">
-      <change afterPath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileStatus.tsx" afterDir="false" />
+    <list default="true" id="81616f40-cdc2-4bd7-a697-93331444d1c6" name="Default Changelist" comment="adding change profile status">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/api.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/DialogsContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/DialogsContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar/navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/profileInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/profileInfo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/profileContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/profileContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hoc/withAuthRedirect.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/hoc/withAuthRedirect.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/profile_reducer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/profile_reducer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Login/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/redux-store.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/redux-store.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +117,8 @@
       <workItem from="1634500451339" duration="637000" />
       <workItem from="1634715593059" duration="9290000" />
       <workItem from="1634754362589" duration="6264000" />
-      <workItem from="1635008206894" duration="899000" />
+      <workItem from="1635008206894" duration="3803000" />
+      <workItem from="1635106273414" duration="3427000" />
     </task>
     <task id="LOCAL-00001" summary="adding authorization">
       <created>1633026320133</created>
@@ -152,7 +148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634725971256</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="adding change profile status">
+      <created>1635009183047</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1635009183047</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,7 +177,8 @@
     <MESSAGE value="adding authorization" />
     <MESSAGE value="adding thunk" />
     <MESSAGE value="adding hoc for autorizate" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding hoc for autorizate" />
+    <MESSAGE value="adding change profile status" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding change profile status" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
