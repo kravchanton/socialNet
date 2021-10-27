@@ -30,8 +30,8 @@ export const mapDispatchToProps = (dispatch: any) => {
             dispatch(updateNewMessageActionCreator(text))
         },
 
-        addMessage: () => {
-            dispatch(addMessageActionCreator())
+        addMessage: (newMessage: string) => {
+            dispatch(addMessageActionCreator(newMessage))
         }
     }
 }

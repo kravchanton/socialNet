@@ -4,8 +4,8 @@ import {MessagesPageType} from "../components/Dialogs/Dialogs";
 export type AddMessageActionType = ReturnType<typeof addMessageActionCreator>
 export type UpdateMessageActionType = ReturnType<typeof updateNewMessageActionCreator>
 
-export const addMessageActionCreator = () => {
-    return {type: "ADD-MESSAGE"} as const
+export const addMessageActionCreator = (newMessage: string) => {
+    return {type: "ADD-MESSAGE", newMessage} as const
 }
 export const updateNewMessageActionCreator = (text: string) => {
     return {type: "UPDATE-NEW-MESSAGE-TEXT", text: text} as const
@@ -25,7 +25,6 @@ let initialState = {
         {message: 'How are you?', id: '2'},
         {message: 'fdsfdsa', id: '3'},
     ],
-    newMessageText: '',
 }
 
 export const dialogsReducer = (state: MessagesPageType = initialState, action: ActionType): MessagesPageType => {
@@ -33,15 +32,10 @@ export const dialogsReducer = (state: MessagesPageType = initialState, action: A
         case "ADD-MESSAGE": {
             return {
                 ...state, messages: [...state.messages, {
-                    message: state.newMessageText,
+                    message: action.newMessage,
                     id: "4"
                 }],
-                newMessageText: ""
             }
-        }
-        case "UPDATE-NEW-MESSAGE-TEXT": {
-            return {...state, newMessageText: action.text}
-
         }
         default:
             return state

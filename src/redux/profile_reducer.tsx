@@ -6,15 +6,11 @@ import {setToggleIsFollowingProgress, unFollowAC} from "./users_reducer";
 
 
 export type AddActionType = ReturnType<typeof addPostActionCreator>
-export type UpdateActionType = ReturnType<typeof updateNewPostActionCreator>
 export type SetUserProfileType = ReturnType<typeof setUserProfile>
 export type GetStatusProfileType = ReturnType<typeof getStatusProfile>
 
-export const addPostActionCreator = () => {
-    return {type: "ADD-POST"} as const
-}
-export const updateNewPostActionCreator = (text: string) => {
-    return {type: "UPDATE-NEW-POST-TEXT", text: text} as const
+export const addPostActionCreator = (text: string) => {
+    return {type: "ADD-POST", text} as const
 }
 export const setUserProfile = (profile: any) => {
     return {type: "SET-USER-PROFILE", profile} as const
@@ -30,7 +26,6 @@ let initialState = {
         {message: 'Its my first post', likesCount: 1, id: '2'},
         {message: 'yesd', likesCount: 12, id: '3'},
     ],
-    newPostText: '',
     profile: {},
     status: ''
 }
@@ -39,17 +34,13 @@ export const profileReducer = (state: ProfilePageType = initialState, action: Ac
     switch (action.type) {
         case "ADD-POST": {
             let newPost: PostsType = {
-                message: state.newPostText,
+                message: action.text,
                 likesCount: 0,
                 id: "5",
             }
             return {
                 ...state, posts: [...state.posts, newPost],
-                newPostText: ""
             };
-        }
-        case "UPDATE-NEW-POST-TEXT": {
-            return {...state, newPostText: action.text}
         }
         case "SET-USER-PROFILE": {
             return {...state, profile: action.profile}
@@ -63,7 +54,7 @@ export const profileReducer = (state: ProfilePageType = initialState, action: Ac
     }
 }
 
-export type ActionType = AddActionType | SetUserProfileType | UpdateActionType | GetStatusProfileType
+export type ActionType = AddActionType | SetUserProfileType | GetStatusProfileType
 
 export const getProfile = (userId: number) => {
     return (dispatch: any) => {

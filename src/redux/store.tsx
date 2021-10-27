@@ -2,10 +2,6 @@ import {ProfilePageType} from "../components/Profile/profile";
 import {DialogsPropsType, MessagesPageType} from "../components/Dialogs/Dialogs";
 import {
     AddActionType,
-    addPostActionCreator,
-    profileReducer,
-    UpdateActionType,
-    updateNewPostActionCreator
 } from "./profile_reducer";
 import {
     addMessageActionCreator,
@@ -93,7 +89,7 @@ export type StateType = {
 }*/
 
 
-export type ActionType = AddActionType | AddMessageActionType | UpdateActionType | UpdateMessageActionType
+export type ActionType = AddActionType | AddMessageActionType | UpdateMessageActionType
 
 
 

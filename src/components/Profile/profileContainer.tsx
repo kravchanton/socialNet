@@ -3,8 +3,6 @@ import {
     AddActionType,
     getProfile,
     getStatus,
-    setUserProfile,
-    UpdateActionType,
     updateStatus
 } from "../../redux/profile_reducer";
 import Profile, {ProfilePageType, ProfileType} from "./profile";
