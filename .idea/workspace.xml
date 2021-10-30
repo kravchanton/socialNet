@@ -4,17 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81616f40-cdc2-4bd7-a697-93331444d1c6" name="Default Changelist" comment="adding redux-form">
+    <list default="true" id="81616f40-cdc2-4bd7-a697-93331444d1c6" name="Default Changelist" comment="refactor profile and dialog with use redux-form">
+      <change afterPath="$PROJECT_DIR$/src/components/common/FormsControls/FormsControls.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/common/FormsControls/FormsControls.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/validators/validators.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/DialogsContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/DialogsContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Login/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login/Login.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPostsContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPostsContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/profileContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/profileContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/dialogs_reducer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/dialogs_reducer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/profile_reducer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/profile_reducer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/store.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/store.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +120,7 @@
       <workItem from="1634754362589" duration="6264000" />
       <workItem from="1635008206894" duration="3803000" />
       <workItem from="1635106273414" duration="3513000" />
-      <workItem from="1635362654331" duration="5871000" />
+      <workItem from="1635362654331" duration="10768000" />
     </task>
     <task id="LOCAL-00001" summary="adding authorization">
       <created>1633026320133</created>
@@ -167,7 +164,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635109994808</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="refactor profile and dialog with use redux-form">
+      <created>1635370584966</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1635370584966</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,7 +195,8 @@
     <MESSAGE value="adding hoc for autorizate" />
     <MESSAGE value="adding change profile status" />
     <MESSAGE value="adding redux-form" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding redux-form" />
+    <MESSAGE value="refactor profile and dialog with use redux-form" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor profile and dialog with use redux-form" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
