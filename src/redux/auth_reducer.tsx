@@ -11,8 +11,8 @@ export type AuthPropsType = {
 export type AuthActionType = ReturnType<typeof setAuthUserDataAC>
 
 
-export const setAuthUserDataAC = (id: string, email: string, login: string) => {
-    return {type: "SET-USER-DATA", data: {id, email, login} } as const
+export const setAuthUserDataAC = (id: string | null, email: string | null, login: string | null, isAuth: boolean) => {
+    return {type: "SET-USER-DATA", data: {id, email, login, isAuth} } as const
 }
 
 let initialState: AuthPropsType = {
@@ -29,7 +29,6 @@ export const authReducer = (state: AuthPropsType = initialState, action: UsersAc
             return {
                 ...state,
                 ...action.data,
-                isAuth: true
                 }
 
         default:
@@ -46,10 +45,28 @@ export const getAuthUserData = () => {
         authAPI.me().then(response => {
             if(response.resultCode === 0 ) {
                 let {id, email, login} = response.data
-                dispatch(setAuthUserDataAC(id, email, login))
+                dispatch(setAuthUserDataAC(id, email, login, true))
             }
 
 
+        })
+    }
+}
+export const login = (email: string, password: string, rememberMe: boolean) => {
+    return (dispatch: any) => {
+        authAPI.login(email, password, rememberMe).then(response => {
+            if(response.resultCode === 0 ) {
+                dispatch(getAuthUserData())
+            }
+        })
+    }
+}
+export const logout = () => {
+    return (dispatch: any) => {
+        authAPI.logout().then(response => {
+            if(response.resultCode === 0 ) {
+                dispatch(setAuthUserDataAC(null, null, null, false))
+            }
         })
     }
 }

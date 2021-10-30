@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import classes from './Header.module.css';
+import {logout} from "../../redux/auth_reducer";
 
 type HeaderType = {
 
@@ -10,6 +11,7 @@ export type HeaderPropsType = {
     email: string
     login: string
     isAuth: boolean
+    logout: () => void
 }
 
 const Header = (props: HeaderPropsType) => {
@@ -21,7 +23,7 @@ const Header = (props: HeaderPropsType) => {
                     alt="logo"/>
 
                 <div className={classes.login}>
-                    {props.isAuth ? props.login : <NavLink to={"/login"}>Login</NavLink>}
+                    {props.isAuth ? <div>{props.login} - <button onClick={props.logout}>Log out</button></div> : <NavLink to={"/login"}>Login</NavLink>}
                 </div>
             </header>)
 }

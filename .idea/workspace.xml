@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81616f40-cdc2-4bd7-a697-93331444d1c6" name="Default Changelist" comment="refactor profile and dialog with use redux-form">
-      <change afterPath="$PROJECT_DIR$/src/components/common/FormsControls/FormsControls.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/FormsControls/FormsControls.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/validators/validators.tsx" afterDir="false" />
+    <list default="true" id="81616f40-cdc2-4bd7-a697-93331444d1c6" name="Default Changelist" comment="adding validate">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/api.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/HeaderContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/HeaderContainer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Login/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login/Login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/auth_reducer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/auth_reducer.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +119,7 @@
       <workItem from="1634754362589" duration="6264000" />
       <workItem from="1635008206894" duration="3803000" />
       <workItem from="1635106273414" duration="3513000" />
-      <workItem from="1635362654331" duration="10768000" />
+      <workItem from="1635362654331" duration="15020000" />
     </task>
     <task id="LOCAL-00001" summary="adding authorization">
       <created>1633026320133</created>
@@ -171,7 +170,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635370584966</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="adding validate">
+      <created>1635602492016</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1635602492016</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,7 +202,8 @@
     <MESSAGE value="adding change profile status" />
     <MESSAGE value="adding redux-form" />
     <MESSAGE value="refactor profile and dialog with use redux-form" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor profile and dialog with use redux-form" />
+    <MESSAGE value="adding validate" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding validate" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
