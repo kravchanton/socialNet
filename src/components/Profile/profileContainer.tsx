@@ -38,7 +38,10 @@ class ProfileContainerAPI extends React.Component<PropsType, any> {
     componentDidMount() {
         let userId = this.props.match.params.userId;
         if (!userId) {
-            userId = 18070;
+            userId = this.props.id;
+            if(!userId) {
+                this.props.history.push('/Login')
+            }
         }
         this.props.getProfile(userId)
         this.props.getStatus(userId)
@@ -50,10 +53,10 @@ class ProfileContainerAPI extends React.Component<PropsType, any> {
 
 }
 
-let authRedirectComponent = withAuthRedirect(ProfileContainerAPI)
 
 let mapStateToProps = (state: AppStateType) => ({
-    profilePage: state.profilePage
+    profilePage: state.profilePage,
+    id: state.auth.id
 })
 
 export default compose<React.ComponentType>(

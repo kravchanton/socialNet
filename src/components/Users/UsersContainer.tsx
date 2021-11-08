@@ -14,6 +14,12 @@ import axios from "axios";
 import {Users} from "./Users";
 import Preloader from "../common/Preloader/Preloader";
 import {usersAPI} from "../../api/api";
+import {
+    getCurrentPage, getFollowingInProgress,
+    getIsFetching,
+    getSizePage, getTotalUsersCount,
+    getUsersSelector
+} from "../../redux/users-selectors";
 
 type UsersContainerType = {
 
@@ -64,12 +70,12 @@ class UsersContainerAPI extends React.Component<UsersContainerType, any> {
 
 export const mapStateToProps = (state: AppStateType) => {
     return {
-        users: state.usersPage.users,
-        totalUsersCount: state.usersPage.totalUsersCount,
-        sizePage: state.usersPage.sizePage,
-        currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching,
-        followingInProgress: state.usersPage.followingInProgress,
+       users: getUsersSelector(state),
+        totalUsersCount: getTotalUsersCount(state),
+        sizePage: getSizePage(state),
+        currentPage: getCurrentPage(state),
+        isFetching: getIsFetching(state),
+        followingInProgress: getFollowingInProgress(state),
     }
 }
 

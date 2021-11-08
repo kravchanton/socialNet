@@ -9,3 +9,8 @@
 .error span {
     color: red
 }
+.FormSummaryError {
+    border: red solid 2px;
+    padding: 5px;
+    color: red
+}

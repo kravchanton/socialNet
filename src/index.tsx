@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 
 
 let rerenderEntireTree = () => {
+
     ReactDOM.render(
             <Provider store={store}>
             <App/>
