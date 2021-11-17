@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81616f40-cdc2-4bd7-a697-93331444d1c6" name="Default Changelist" comment="initial aplication">
-      <change afterPath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileStatuswithHooks.tsx" afterDir="false" />
+    <list default="true" id="81616f40-cdc2-4bd7-a697-93331444d1c6" name="Default Changelist" comment="add hook useState">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/profileInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/profileInfo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileStatus.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileStatus.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileStatuswithHooks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileStatuswithHooks.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +45,7 @@
     <property name="node.js.selected.package.standard" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="E:\react\samurai\my-app\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -122,7 +120,9 @@
       <workItem from="1635974691537" duration="736000" />
       <workItem from="1636400320112" duration="7255000" />
       <workItem from="1636449914793" duration="597000" />
-      <workItem from="1636713090720" duration="2580000" />
+      <workItem from="1636713090720" duration="3238000" />
+      <workItem from="1636800005306" duration="75000" />
+      <workItem from="1637159151013" duration="3013000" />
     </task>
     <task id="LOCAL-00001" summary="adding authorization">
       <created>1633026320133</created>
@@ -194,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636408777330</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="add hook useState">
+      <created>1636731682554</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1636731682554</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -222,7 +229,8 @@
     <MESSAGE value="adding validate" />
     <MESSAGE value="login flow" />
     <MESSAGE value="initial aplication" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial aplication" />
+    <MESSAGE value="add hook useState" />
+    <option name="LAST_COMMIT_MESSAGE" value="add hook useState" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
