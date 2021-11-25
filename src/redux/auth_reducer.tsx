@@ -41,36 +41,31 @@ export type UsersActionType =
     AuthActionType
 
 
-export const getAuthUserData = () => {
-    return (dispatch: any) => {
-        authAPI.me().then(response => {
-            if (response.resultCode === 0) {
-                let {id, email, login} = response.data
-                dispatch(setAuthUserDataAC(id, email, login, true))
-            }
+export const getAuthUserData = () => async (dispatch: any) => {
+    let response = await authAPI.me()
+    if (response.resultCode === 0) {
+        let {id, email, login} = response.data
+        dispatch(setAuthUserDataAC(id, email, login, true))
+    }
 
 
-        })
-    }
 }
-export const login = (email: string, password: string, rememberMe: boolean) => {
-    return (dispatch: any) => {
-        authAPI.login(email, password, rememberMe).then(response => {
-            if (response.resultCode === 0) {
-                dispatch(getAuthUserData())
-            } else {
-                let messages = response.messages.length > 0 ? response.messages[0] : "Some error"
-                dispatch(stopSubmit('login', {_error: messages}))
-            }
-        })
+export const login = (email: string, password: string, rememberMe: boolean) => async (dispatch: any) => {
+    let response = await authAPI.login(email, password, rememberMe)
+    if (response.resultCode === 0) {
+        dispatch(getAuthUserData())
+    } else {
+        let messages = response.messages.length > 0 ? response.messages[0] : "Some error"
+        dispatch(stopSubmit('login', {_error: messages}))
     }
+
+
 }
-export const logout = () => {
-    return (dispatch: any) => {
-        authAPI.logout().then(response => {
-            if (response.resultCode === 0) {
-                dispatch(setAuthUserDataAC(null, null, null, false))
-            }
-        })
+export const logout = () => async (dispatch: any) => {
+    let response = await authAPI.logout()
+    if (response.resultCode === 0) {
+        dispatch(setAuthUserDataAC(null, null, null, false))
     }
+
+
 }
