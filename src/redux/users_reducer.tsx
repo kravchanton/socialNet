@@ -10,8 +10,6 @@ export type UsersPropsType = {
     followingInProgress: string[],
 
 
-
-
 }
 export type UserType = {
     name: string,
@@ -136,14 +134,14 @@ export type UsersActionType =
 
 
 export const getUsers = (currentPage: number, sizePage: number) => {
-    return (dispatch: any) => {
+    return async (dispatch: any) => {
         dispatch(setToggleIsFetchingAC(true))
-        usersAPI.getUsers(currentPage, sizePage).then(response => {
-            dispatch(setUsersAC(response.items))
-            dispatch(setTotalCountAC(response.totalCount))
-            dispatch(setToggleIsFetchingAC(false))
+        let response = await usersAPI.getUsers(currentPage, sizePage)
+        dispatch(setUsersAC(response.items))
+        dispatch(setTotalCountAC(response.totalCount))
+        dispatch(setToggleIsFetchingAC(false))
 
-        })
+
     }
 }
 export const follow = (userId: string) => {
@@ -170,8 +168,6 @@ export const unFollow = (userId: string) => {
             }
             debugger
             dispatch(setToggleIsFollowingProgress(false, userId))
-
-
 
 
         })
