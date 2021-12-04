@@ -1,4 +1,4 @@
-import {ActionType, DialogsType} from "./store";
+import {ActionType} from "./store";
 import {MessagesPageType} from "../components/Dialogs/Dialogs";
 
 export type AddMessageActionType = ReturnType<typeof addMessageActionCreator>

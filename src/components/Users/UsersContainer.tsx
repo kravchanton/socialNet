@@ -1,19 +1,13 @@
-import React, {ChangeEvent} from "react";
+import React from "react";
 import {connect} from "react-redux";
 import {
-    follow,
-    followAC, getUsers,
-    setCurrentPage, setToggleIsFetchingAC, setToggleIsFollowingProgress,
-    setTotalCountAC,
-    setUsersAC, unFollow,
-    unFollowAC,
+    follow, getUsers,
+    setCurrentPage, setToggleIsFollowingProgress, unFollow,
     UserType
 } from "../../redux/users_reducer";
 import {AppStateType} from "../../redux/redux-store";
-import axios from "axios";
 import {Users} from "./Users";
 import Preloader from "../common/Preloader/Preloader";
-import {usersAPI} from "../../api/api";
 import {
     getCurrentPage, getFollowingInProgress,
     getIsFetching,

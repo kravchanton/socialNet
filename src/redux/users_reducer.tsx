@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Dispatch} from "react";
 import {usersAPI} from "../api/api";
 
 export type UsersPropsType = {
@@ -116,7 +116,7 @@ export const usersReducer = (state: UsersPropsType = initialState, action: Users
                 ...state,
                 followingInProgress: action.isFetching ?
                     [...state.followingInProgress, action.userId]
-                    : state.followingInProgress.filter(id => id != action.userId)
+                    : state.followingInProgress.filter(id => id !== action.userId)
             }
 
         default:
@@ -144,32 +144,25 @@ export const getUsers = (currentPage: number, sizePage: number) => {
 
     }
 }
+export const followUnFollow = async (dispatch: Dispatch<any>, userId: string, apiMethod: (userId: string) => Promise<any>, actionCreator: (userID: string) => any) => {
+    dispatch(setToggleIsFollowingProgress(true, userId))
+    let response = await apiMethod(userId)
+    if (response.resultCode === 0) {
+        dispatch(actionCreator(userId))
+    }
+    dispatch(setToggleIsFollowingProgress(false, userId))
+}
 export const follow = (userId: string) => {
-    return (dispatch: any) => {
-        dispatch(setToggleIsFollowingProgress(true, userId));
-        usersAPI.follow(userId).then(response => {
-            if (response.resultCode === 0) {
-                dispatch(followAC(userId))
-            }
-            debugger
-            dispatch(setToggleIsFollowingProgress(false, userId))
-
-
-        })
+    return async (dispatch: any) => {
+        let apiMethod = usersAPI.follow.bind(usersAPI);
+        let actionCreator = followAC
+        followUnFollow(dispatch, userId, apiMethod, actionCreator)
     }
 }
 export const unFollow = (userId: string) => {
-    return (dispatch: any) => {
-        dispatch(setToggleIsFollowingProgress(true, userId))
-        usersAPI.unFollow(userId).then(response => {
-            if (response.resultCode === 0) {
-                debugger
-                dispatch(unFollowAC(userId))
-            }
-            debugger
-            dispatch(setToggleIsFollowingProgress(false, userId))
-
-
-        })
+    return async (dispatch: any) => {
+        let apiMethod = usersAPI.unFollow.bind(usersAPI);
+        let actionCreator = unFollowAC
+        followUnFollow(dispatch, userId, apiMethod, actionCreator)
     }
 }

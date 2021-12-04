@@ -2,7 +2,6 @@ import {PostsType} from "./store";
 import {ProfilePageType} from "../components/Profile/profile";
 import React from "react";
 import {profileAPI, usersAPI} from "../api/api";
-import {setToggleIsFollowingProgress, unFollowAC} from "./users_reducer";
 
 
 export type AddActionType = ReturnType<typeof addPostActionCreator>

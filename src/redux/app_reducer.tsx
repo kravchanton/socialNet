@@ -1,7 +1,4 @@
 import React from "react";
-import {authAPI, usersAPI} from "../api/api";
-import {setUserProfile} from "./profile_reducer";
-import {stopSubmit} from "redux-form";
 import {getAuthUserData} from "./auth_reducer";
 
 export type AppPropsType = {
