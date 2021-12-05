@@ -1,32 +1,22 @@
 import React from "react";
 import styles from "./users.module.css";
 import userPhoto from "../../assets/images/user.png";
-import { UserType} from "../../redux/users_reducer";
+import {UserType} from "../../redux/users_reducer";
 import {NavLink} from "react-router-dom";
 import {Paginator} from "../common/Paginator/Paginator";
 
 
-type UsersPropsType = {
-
-    users: Array<UserType>
-    totalUsersCount: number,
-    sizePage: number,
-    currentPage: number,
+type UserPropsType = {
+    user: UserType
     follow: (userID: string) => void
     unFollow: (userID: string) => void
-    onPageChanged: (pageNumber: number) => void
     followingInProgress: string[]
-
-
 }
 
-export function Users(props: UsersPropsType) {
-
+export function User(props: UserPropsType) {
+    let u = props.user
     return (<div>
-       <Paginator totalUsersCount={props.totalUsersCount} sizePage={props.sizePage} onPageChanged={props.onPageChanged} currentPage={props.currentPage}/>
-        {
-            props.users.map(u =>
-                    <div id={u.id}>
+        <div id={u.id}>
                 <span><div>
                     <NavLink to={'profile/' + u.id}> <img src={u.photos.small != null ? u.photos.small : userPhoto}
                                                           className={styles.img}/> </NavLink>
@@ -42,7 +32,7 @@ export function Users(props: UsersPropsType) {
                     }}>follow</button>}
                     </div>
             </span>
-                        <span>
+            <span>
 <span>
     <div>{u.name}</div>
     <div>{u.status}</div>
@@ -51,8 +41,8 @@ export function Users(props: UsersPropsType) {
 
     </span>
                 </span>
-                    </div>
-            )}
+        </div>
+        )
     </div>)
 }
 
