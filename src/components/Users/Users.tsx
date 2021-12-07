@@ -21,11 +21,12 @@ type UsersPropsType = {
 export function Users(props: UsersPropsType) {
 
     return (<div>
-        <Paginator totalUsersCount={props.totalUsersCount} sizePage={props.sizePage} onPageChanged={props.onPageChanged}
+        {props.users.map(u => <User key={u.id} user={u} follow={props.follow}
+                                    followingInProgress={props.followingInProgress}
+                                    unFollow={props.unFollow}/>)}
+
+        <Paginator totalItemsCount={props.totalUsersCount} sizePage={props.sizePage} onPageChanged={props.onPageChanged}
                    currentPage={props.currentPage}/>
-        {
-            props.users.map(u => <User user={u} follow={props.follow} followingInProgress={props.followingInProgress}
-                                       unFollow={props.unFollow}/>)}
     </div>)
 }
 

@@ -1,9 +1,8 @@
-import React, {ChangeEvent, useState} from "react";
+import React from "react";
 import classes from './MyPosts.module.css';
 import MyPost from "./Post/MyPost";
 import {PostsType} from "../../../redux/store";
 import {Field, InjectedFormProps, reduxForm} from "redux-form";
-import {type} from "os";
 import {maxLengthCreator, required} from "../../../utils/validators/validators";
 import {TextArea} from "../../common/FormsControls/FormsControls";
 

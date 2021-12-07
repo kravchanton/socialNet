@@ -1,13 +1,11 @@
 import {ProfilePageType} from "../components/Profile/profile";
-import {DialogsPropsType, MessagesPageType} from "../components/Dialogs/Dialogs";
+import {DialogsPropsType} from "../components/Dialogs/Dialogs";
 import {
     AddActionType,
 } from "./profile_reducer";
 import {
-    addMessageActionCreator,
-    AddMessageActionType,
-    dialogsReducer, UpdateMessageActionType,
-    updateNewMessageActionCreator
+    AddMessageActionType, UpdateMessageActionType
+
 } from "./dialogs_reducer";
 import {UsersPropsType} from "./users_reducer";
 import {AuthPropsType} from "./auth_reducer";

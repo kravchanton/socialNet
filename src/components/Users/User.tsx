@@ -3,7 +3,6 @@ import styles from "./users.module.css";
 import userPhoto from "../../assets/images/user.png";
 import {UserType} from "../../redux/users_reducer";
 import {NavLink} from "react-router-dom";
-import {Paginator} from "../common/Paginator/Paginator";
 
 
 type UserPropsType = {
@@ -14,35 +13,32 @@ type UserPropsType = {
 }
 
 export function User(props: UserPropsType) {
-    let u = props.user
+    let user = props.user
     return (<div>
-        <div id={u.id}>
-                <span><div>
-                    <NavLink to={'profile/' + u.id}> <img src={u.photos.small != null ? u.photos.small : userPhoto}
-                                                          className={styles.img}/> </NavLink>
-                </div>
-                <div>{u.followed ?
-                    <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
-                        props.unFollow(u.id)
+        <div id={user.id}>
+            <div>
+                <NavLink to={'profile/' + user.id}> <img src={user.photos.small != null ? user.photos.small : userPhoto}
+                                                         className={styles.img}/> </NavLink>
+            </div>
+            <div>{user.followed ?
+                <button disabled={props.followingInProgress.some(id => id === user.id)} onClick={() => {
+                    props.unFollow(user.id)
+                }}>unfollow</button>
+                :
+                <button disabled={props.followingInProgress.some(id => id === user.id)} onClick={() => {
+                    props.follow(user.id)
+                }}>follow</button>}
+            </div>
 
-                    }}>unfollow</button>
-                    :
-                    <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
-                        props.follow(u.id)
-                    }}>follow</button>}
-                    </div>
-            </span>
             <span>
-<span>
-    <div>{u.name}</div>
-    <div>{u.status}</div>
-    </span><span>
-    <div>{u.id}</div>
+    <div>{user.name}</div>
+    <div>{user.status}</div>
+    <div>{user.id}</div>
 
     </span>
-                </span>
+
         </div>
-        )
+
     </div>)
 }
 

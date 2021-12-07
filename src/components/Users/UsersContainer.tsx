@@ -73,16 +73,6 @@ export const mapStateToProps = (state: AppStateType) => {
     }
 }
 
-export const mapDispatchToProps = (dispatch: any) => {
-    return {
-        follow,
-        unFollow,
-        setCurrentPage,
-        setToggleIsFollowingProgress,
-        getUsers
-
-    }
-}
 const UsersContainer = connect(mapStateToProps, {
     follow,
     unFollow,
