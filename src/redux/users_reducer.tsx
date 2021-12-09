@@ -59,7 +59,7 @@ export const setToggleIsFollowingProgress = (isFetching: boolean, userId: string
 let initialState: UsersPropsType = {
     users: [],
     totalUsersCount: 0,
-    sizePage: 4,
+    sizePage: 10,
     currentPage: 1,
     isFetching: false,
     followingInProgress: []
