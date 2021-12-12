@@ -1,30 +1,30 @@
 {
   "files": {
     "main.css": "/socialNet/static/css/main.1105953b.chunk.css",
-    "main.js": "/socialNet/static/js/main.6880ea59.chunk.js",
-    "main.js.map": "/socialNet/static/js/main.6880ea59.chunk.js.map",
-    "runtime-main.js": "/socialNet/static/js/runtime-main.84a865f5.js",
-    "runtime-main.js.map": "/socialNet/static/js/runtime-main.84a865f5.js.map",
-    "static/js/2.076a1217.chunk.js": "/socialNet/static/js/2.076a1217.chunk.js",
-    "static/js/2.076a1217.chunk.js.map": "/socialNet/static/js/2.076a1217.chunk.js.map",
+    "main.js": "/socialNet/static/js/main.79ff1c06.chunk.js",
+    "main.js.map": "/socialNet/static/js/main.79ff1c06.chunk.js.map",
+    "runtime-main.js": "/socialNet/static/js/runtime-main.572cdcea.js",
+    "runtime-main.js.map": "/socialNet/static/js/runtime-main.572cdcea.js.map",
+    "static/js/2.df4c15ea.chunk.js": "/socialNet/static/js/2.df4c15ea.chunk.js",
+    "static/js/2.df4c15ea.chunk.js.map": "/socialNet/static/js/2.df4c15ea.chunk.js.map",
     "static/css/3.d4a7a8ba.chunk.css": "/socialNet/static/css/3.d4a7a8ba.chunk.css",
     "static/js/3.7ff6cb2a.chunk.js": "/socialNet/static/js/3.7ff6cb2a.chunk.js",
     "static/js/3.7ff6cb2a.chunk.js.map": "/socialNet/static/js/3.7ff6cb2a.chunk.js.map",
     "static/css/4.c466c841.chunk.css": "/socialNet/static/css/4.c466c841.chunk.css",
-    "static/js/4.8dece1dd.chunk.js": "/socialNet/static/js/4.8dece1dd.chunk.js",
-    "static/js/4.8dece1dd.chunk.js.map": "/socialNet/static/js/4.8dece1dd.chunk.js.map",
+    "static/js/4.79742973.chunk.js": "/socialNet/static/js/4.79742973.chunk.js",
+    "static/js/4.79742973.chunk.js.map": "/socialNet/static/js/4.79742973.chunk.js.map",
     "index.html": "/socialNet/index.html",
     "static/css/3.d4a7a8ba.chunk.css.map": "/socialNet/static/css/3.d4a7a8ba.chunk.css.map",
     "static/css/4.c466c841.chunk.css.map": "/socialNet/static/css/4.c466c841.chunk.css.map",
     "static/css/main.1105953b.chunk.css.map": "/socialNet/static/css/main.1105953b.chunk.css.map",
-    "static/js/2.076a1217.chunk.js.LICENSE.txt": "/socialNet/static/js/2.076a1217.chunk.js.LICENSE.txt",
+    "static/js/2.df4c15ea.chunk.js.LICENSE.txt": "/socialNet/static/js/2.df4c15ea.chunk.js.LICENSE.txt",
     "static/media/preloader.385f97b7.svg": "/socialNet/static/media/preloader.385f97b7.svg",
     "static/media/user.png": "/socialNet/static/media/user.7bc1f545.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.84a865f5.js",
-    "static/js/2.076a1217.chunk.js",
+    "static/js/runtime-main.572cdcea.js",
+    "static/js/2.df4c15ea.chunk.js",
     "static/css/main.1105953b.chunk.css",
-    "static/js/main.6880ea59.chunk.js"
+    "static/js/main.79ff1c06.chunk.js"
   ]
 }
