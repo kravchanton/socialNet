@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Navbar from "./components/Navbar/navbar";
-import {BrowserRouter, Route, withRouter} from "react-router-dom";
+import {HashRouter, Route, withRouter} from "react-router-dom";
 import News from "./components/News/news";
 import Music from "./components/Music/music";
 import Settings from "./components/Settings/settings";
@@ -29,7 +29,7 @@ class App extends React.Component<any, any> {
             return <Preloader/>
         } else {
             return (
-                <BrowserRouter>
+                <HashRouter>
                     <div className='app-wrapper'>
                         <HeaderContainer/>
                         <Navbar/>
@@ -46,7 +46,7 @@ class App extends React.Component<any, any> {
                             </div>
                         </React.Suspense>
                     </div>
-                </BrowserRouter>
+                </HashRouter>
 
             )
         }
