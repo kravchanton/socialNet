@@ -1,5 +1,4 @@
 import React from "react";
-import {PropsType} from "../profileContainer";
 
 
 class ProfileStatus extends React.Component<any, any> {
