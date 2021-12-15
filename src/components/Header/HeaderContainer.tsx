@@ -1,10 +1,8 @@
 import React from 'react';
-import axios from "axios";
 import {connect} from "react-redux";
-import {getAuthUserData, logout, setAuthUserDataAC} from "../../redux/auth_reducer";
-import Header, {HeaderPropsType} from "./Header";
+import {logout} from "../../redux/auth_reducer";
+import Header from "./Header";
 import {AppStateType} from "../../redux/redux-store";
-import {authAPI} from "../../api/api";
 
 
 
