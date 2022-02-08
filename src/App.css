@@ -2,14 +2,13 @@
 .app-wrapper {
     display: grid;
     margin: 0 auto;
-    width: 1200px;
     grid-template-areas:
     "h h"
     "n c";
-    grid-template-rows: 60px 1fr;
+    grid-template-rows: 60px 100%;
     grid-template-columns: 2fr 10fr;
     grid-gap: 20px;
-    background-color: #fafafb;
+    background-color: #f8f9fa
 
 }
 
