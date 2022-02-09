@@ -32,7 +32,7 @@ class App extends React.Component<any, any> {
                 <HashRouter>
                     <div className='app-wrapper'>
                         <HeaderContainer/>
-                        <Navbar/>
+                        <div className="app-body"><Navbar/>
                         <React.Suspense fallback={<Preloader/>}>
                             <div className='app-wrapper-content'>
                                 <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
@@ -44,7 +44,8 @@ class App extends React.Component<any, any> {
                                 <Route path='/settings' component={Settings}/>
 
                             </div>
-                        </React.Suspense>
+                        </React.Suspense></div>
+
                     </div>
                 </HashRouter>
 
