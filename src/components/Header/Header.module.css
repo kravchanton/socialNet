@@ -1,22 +1,38 @@
 .header {
-    grid-area: h;
     display: flex;
     justify-content: space-between;
     position: sticky;
     top: 0;
     min-height: 4.563rem;
-    line-height: 4.563rem;
-    background-color: white;
-    box-shadow: 0px 0px 15px 0px rgba(34, 60, 80, 0.27);
+    background: #fff;
+    box-shadow: 0 0 1.25rem 0 rgb(0 0 0 / 10%);
+    z-index: 100;
 }
 
 
 .header img {
-    height: 60px;
+    padding: 15px 10px 0 10px;
+    height: 2.813rem;
 }
+
 .logo {
     display: flex;
+    vertical-align: center;
 }
+
+a {
+    text-decoration: none;
+}
+
+.logo span {
+    padding-top: 15px;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 0.625rem;
+    font-size: 1.75rem;
+    color: #3f414d;
+    cursor: pointer;
+}
+
 .login {
     float: right;
 }

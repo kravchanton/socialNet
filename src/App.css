@@ -14,6 +14,10 @@
 }
 .app-wrapper-content {
     position: relative;
+    box-shadow: 0 0 1.25rem 0 rgb(0 0 0 / 10%);
+    background: #fff;
+    top: 4.688rem;
+    transition: all .3s ease-in-out;
     left: 300px;
 
 }

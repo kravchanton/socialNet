@@ -15,8 +15,10 @@ const Header = (props: HeaderPropsType) => {
     return (
 
         <header className={classes.header}>
-            <div className={classes.logo}><img src={logo}
-                                               alt="logo"/><span>SocialV</span></div>
+            <NavLink to='/profile/'>
+                <div className={classes.logo}><img src={logo}
+                                                   alt="logo"/><span>SocialV</span></div>
+            </NavLink>
 
             <div className={classes.login}>
                 {props.isAuth ? <div>{props.login} - <button onClick={props.logout}>Log out</button></div> :
