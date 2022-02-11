@@ -1,3 +1,15 @@
+
+
+.wrapper {
+    padding: 10px;
+    display: flex;
+    min-width: 300px;
+}
+
+.wrapper img {
+    width: 40px;
+}
 .content {
-    background-color: beige;
+    width: 200px;
+    padding-left: 10px;
 }

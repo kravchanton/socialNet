@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Navbar from "./components/Navbar/navbar";
-import {HashRouter, Route, withRouter} from "react-router-dom";
+import {HashRouter, Redirect, Route, withRouter} from "react-router-dom";
 import News from "./components/News/news";
 import Music from "./components/Music/music";
 import Settings from "./components/Settings/settings";
@@ -32,7 +32,9 @@ class App extends React.Component<any, any> {
                 <HashRouter>
                     <div className='app-wrapper'>
                         <HeaderContainer/>
-                        <div className="app-body"><Navbar/>
+                        <div className="app-body">
+                            {this.props.isAuth ?  <Navbar/> : <Redirect to="/login" />}
+
                         <React.Suspense fallback={<Preloader/>}>
                             <div className='app-wrapper-content'>
                                 <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
@@ -55,7 +57,8 @@ class App extends React.Component<any, any> {
 }
 
 const mapStateToProps = (state: AppStateType) => ({
-    initialized: state.app.initialized
+    initialized: state.app.initialized,
+    isAuth: state.auth.isAuth
 })
 export default compose(
     connect(mapStateToProps, {initializeApp})(App));

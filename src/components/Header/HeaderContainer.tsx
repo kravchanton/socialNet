@@ -21,7 +21,7 @@ const mapStateToProps = (state: AppStateType) => ({
     login: state.auth.login,
     id: state.auth.id,
     email: state.auth.email,
-    isAuth: state.auth.isAuth
+    isAuth: state.auth.isAuth,
 
 })
 export default connect(mapStateToProps, {logout})(HeaderContainer);

@@ -14,12 +14,14 @@ type UserPropsType = {
 
 export function User(props: UserPropsType) {
     let user = props.user
-    return (<div>
+    return (<div className={styles.item}>
         <div id={user.id}>
             <div>
                 <NavLink to={'profile/' + user.id}> <img src={user.photos.small != null ? user.photos.small : userPhoto}
                                                          className={styles.img}/> </NavLink>
             </div>
+            <div>{user.name}</div>
+
             <div>{user.followed ?
                 <button disabled={props.followingInProgress.some(id => id === user.id)} onClick={() => {
                     props.unFollow(user.id)
@@ -31,9 +33,7 @@ export function User(props: UserPropsType) {
             </div>
 
             <span>
-    <div>{user.name}</div>
-    <div>{user.status}</div>
-    <div>{user.id}</div>
+
 
     </span>
 

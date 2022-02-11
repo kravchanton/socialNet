@@ -4,7 +4,7 @@ import React from "react";
 const Music = () => {
     return (
         <div>
-           Music
+            in progress...
         </div>)
 }
 export default Music;

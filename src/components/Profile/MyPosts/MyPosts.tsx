@@ -19,11 +19,10 @@ export const MyPosts = (props: MyPostsPropsType) => {
         props.addPost(value.addPostBody)
     }
 
-    let postsElements = props.posts.map((t) => <MyPost message={t.message} likesCount={t.likesCount}/>)
+    let postsElements = props.posts.reverse().map((t) => <MyPost message={t.message} likesCount={t.likesCount}/>)
     return (
         <div className={classes.postsBlock}>
             My post
-            <div className={classes.item}>New post</div>
             <div>
                 <AddPostFormRedux onSubmit={onAddPost}/>
             </div>

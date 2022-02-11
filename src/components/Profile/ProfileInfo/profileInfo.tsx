@@ -9,12 +9,22 @@ const ProfileInfo = (props: any) => {
         return <Preloader/>
     }
     return (
-        <div className={classes.logo}><img
-            src={props.profile.photos.large ? props.profile.photos.large : userPhoto}
-            alt=""/>
-            <div><ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/></div>
-            <div>{props.profile.fullName}</div>
-            <div>{props.profile.aboutMe}</div>
+        <div className={classes.wrapper}>
+            <div className={classes.logo}><img
+                src={props.profile.photos.large ? props.profile.photos.large : userPhoto}
+                alt=""/>
+                <div> <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/></div>
+            </div>
+            <div className={classes.profileInfo}>
+                <div>Full Name: {props.profile.fullName}</div>
+
+                <div>About Me: {props.profile.aboutMe}</div>
+                <ul className={classes.contacts}>Contacts: <li>{!props.profile.contacts.facebook && 'facebook'}</li>
+                    <li>{!props.profile.contacts.vk && 'vk'}</li>
+                    <li>{!props.profile.contacts.github && 'github'}</li>
+                </ul>
+
+            </div>
         </div>
     )
 }

@@ -1,0 +1,17 @@
+.login {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: #323131;
+  display: flex;
+justify-content: center;
+  form {
+    width: 20%;
+  }
+  input {
+    margin: 10px;
+
+  }
+  button {
+    width: 60px;
+  }
+}

@@ -7,6 +7,7 @@ import {login} from "../../redux/auth_reducer";
 import {Redirect} from "react-router-dom";
 import {RootStateType} from "../../redux/store";
 import styles from '../common/FormsControls/FormsControls.module.css'
+import './Login.scss'
 
 type FormDataType = {
     login: string
@@ -16,10 +17,12 @@ type FormDataType = {
 
 const LoginForm: React.FC<InjectedFormProps<FormDataType>> = (props) => {
     return (
-        <form onSubmit={props.handleSubmit}>
+        <div className="login"><form onSubmit={props.handleSubmit}>
+            <h1>Login</h1>
             <div>Email: free@samuraijs.com</div>
             <div>Password: free</div>
-            <div><Field placeholder={"Login"} name={'login'} validate={[required]} component={Input}/></div>
+            <div><Field placeholder={"Login"} name={'login'} validate={[required]}
+                        component={Input}/></div>
             <div><Field
                 placeholder={"password"} name={'password'} type={'password'} validate={[required]} component={'input'}/>
             </div>
@@ -28,7 +31,8 @@ const LoginForm: React.FC<InjectedFormProps<FormDataType>> = (props) => {
                 <button>Login</button>
             </div>
             {props.error && <div className={styles.FormSummaryError}>{props.error}</div>}
-        </form>
+        </form></div>
+
     )
 }
 
@@ -38,9 +42,9 @@ export const Login = (props: any) => {
     const onSubmit = (formData: FormDataType) => {
         props.login(formData.login, formData.password, formData.rememberMe)
     }
-    if (props.isAuth) <Redirect to={'/profile'}/>
-    return <><h1>Login</h1>
-        <LoginReduxForm onSubmit={onSubmit}/>
+    return <>
+        {props.isAuth ? <Redirect to={'/profile'}/> : <LoginReduxForm onSubmit={onSubmit}/>}
+
     </>
 }
 const mapStateToProps = (state: RootStateType) => {

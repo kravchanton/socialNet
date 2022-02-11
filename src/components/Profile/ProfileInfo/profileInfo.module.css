@@ -1,9 +1,26 @@
 
-.item {
-    color: brown;
+.wrapper {
+    display: flex;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #323131;
 }
 
-.logo img{
+.profileInfo {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0 0 100px;
+}
+
+.wrapper img {
     width: 200px;
     padding: 20px;
 }
+ul {
+    padding: 0;
+}
+ li {
+     list-style-type: none;
+     padding-left: 30px;
+
+ }

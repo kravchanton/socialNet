@@ -1,7 +1,25 @@
 .content {
-    background-color: beige;
 }
 
 .postsBlock {
+    margin-top: 40px;
     padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #323131;
+}
+
+.postsBlock textarea {
+    width: 60%;
+    height: 10vh;
+    resize: none;
+}
+.postsBlock button {
+    min-width: 100px;
+    min-height: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #50b5ff;
+    background-color: rgba(80,181,255,.1);
+    border-radius: 5px;
 }

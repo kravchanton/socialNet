@@ -1,16 +1,19 @@
 import React from "react";
 import classes from './MyPost.module.css';
 import {PostsType} from "../../../../redux/store";
+import userPhoto from "../../../../assets/images/user.png";
 
 
 const MyPost = (props: PostsType) => {
     return (
-        <div>
-
+        <div className={classes.wrapper}>
+            <div><img
+                src={userPhoto}
+                alt=""/></div>
             <div className={classes.content}>
                 {props.message}
             </div>
-            <span>Likes</span> {props.likesCount}
+            <div>Likes {props.likesCount}</div>
 
 
         </div>

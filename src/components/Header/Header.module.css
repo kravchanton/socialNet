@@ -34,9 +34,19 @@ a {
 }
 
 .login {
-    float: right;
+    padding: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+
 }
 
-.login a {
-    color: white;
+.login button {
+min-width: 100px;
+min-height: 30px;
+    font-family: 'Poppins', sans-serif;
+font-weight: 600;
+    color: #50b5ff;
+    background-color: rgba(80,181,255,.1);
+    border-radius: 5px;
+
 }

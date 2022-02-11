@@ -1,11 +1,10 @@
 
 .nav {
-    grid-area: n;
     padding: 20px;
     box-shadow: 0 0 1.25rem 0 rgb(0 0 0 / 10%);
-    position: fixed;
+    position: sticky;
     z-index: 1000;
-    top: 4.688rem;
+    top: 5.400rem;
     width: 250px;
     height: 100%;
     background: #fff;
