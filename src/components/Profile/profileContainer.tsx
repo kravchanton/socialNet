@@ -12,9 +12,6 @@ import {RouteComponentProps, withRouter} from "react-router-dom";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 
 
-
-
-
 type MapDispatchPropsType = {
     getProfile: (userId: number) => void
     getStatus: (userId: number) => void
@@ -26,27 +23,35 @@ type PathParamsType = {
 }
 
 
-
 // @ts-ignore
 export type PropsType = MapStateToPropsType & MapDispatchPropsType & RouteComponentProps<PathParamsType>
 
 class ProfileContainerAPI extends React.Component<PropsType, any> {
 
-
-    componentDidMount() {
+    refreshProfile() {
         let userId = this.props.match.params.userId;
         if (!userId) {
             userId = this.props.id;
-            if(!userId) {
-                this.props.history.push('/Login')
+            if (!userId) {
+                this.props.history.push('/login')
             }
         }
         this.props.getProfile(userId)
         this.props.getStatus(userId)
     }
 
+    componentDidMount() {
+        this.refreshProfile()
+    }
+
+    componentDidUpdate(prevProps: Readonly<PropsType>, prevState: Readonly<any>, snapshot?: any) {
+        if (this.props.match.params.userId != prevProps.match.params.userId) {
+            this.refreshProfile()
+        }
+    }
+
     render() {
-        return <Profile {...this.props} profilePage={this.props.profilePage} updateStatus={this.props.updateStatus} />
+        return <Profile {...this.props} profilePage={this.props.profilePage} updateStatus={this.props.updateStatus}/>
     }
 
 }
