@@ -6,6 +6,7 @@ import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 export type ProfilePageType = {
     posts: Array<PostsType>
+
     addPost?: () => void
     dispatch?: (action: AddActionType) => void
     profile: any
@@ -37,7 +38,7 @@ export type ProfileType = {
 export const Profile = (props: any) => {
     return (
         <div>
-            <ProfileInfo profile={props.profilePage.profile} status={props.profilePage.status} updateStatus={props.updateStatus}/>
+            <ProfileInfo profile={props.profilePage.profile} isOwner={props.isOwner} status={props.profilePage.status} updateStatus={props.updateStatus}/>
             <MyPostsContainer/>
         </div>)
 }

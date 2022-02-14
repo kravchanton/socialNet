@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Navbar from "./components/Navbar/navbar";
-import {HashRouter, Redirect, Route, withRouter} from "react-router-dom";
+import {HashRouter, Redirect, Route} from "react-router-dom";
 import News from "./components/News/news";
 import Music from "./components/Music/music";
 import Settings from "./components/Settings/settings";

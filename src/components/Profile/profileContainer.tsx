@@ -45,13 +45,13 @@ class ProfileContainerAPI extends React.Component<PropsType, any> {
     }
 
     componentDidUpdate(prevProps: Readonly<PropsType>, prevState: Readonly<any>, snapshot?: any) {
-        if (this.props.match.params.userId != prevProps.match.params.userId) {
+        if (this.props.match.params.userId !== prevProps.match.params.userId) {
             this.refreshProfile()
         }
     }
 
     render() {
-        return <Profile {...this.props} profilePage={this.props.profilePage} updateStatus={this.props.updateStatus}/>
+        return <Profile {...this.props} isOwner={!this.props.match.params.userId} profilePage={this.props.profilePage} updateStatus={this.props.updateStatus}/>
     }
 
 }

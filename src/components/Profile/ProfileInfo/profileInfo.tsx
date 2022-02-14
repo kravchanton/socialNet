@@ -13,6 +13,7 @@ const ProfileInfo = (props: any) => {
             <div className={classes.logo}><img
                 src={props.profile.photos.large ? props.profile.photos.large : userPhoto}
                 alt=""/>
+                {props.isOwner && <input type={'file'}/>}
                 <div> <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/></div>
             </div>
             <div className={classes.profileInfo}>
