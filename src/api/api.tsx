@@ -14,12 +14,10 @@ export const usersAPI = {
             .then(response => response.data)
     },
     unFollow(userId: string) {
-        return instance.delete(`follow/${userId}`, {
-        }).then(response => response.data)
+        return instance.delete(`follow/${userId}`, {}).then(response => response.data)
     },
     follow(userId: string) {
-        return instance.post(`follow/${userId}`, {}, {
-        }).then(response => response.data)
+        return instance.post(`follow/${userId}`, {}, {}).then(response => response.data)
     },
     getProfile(userId: number) {
         return profileAPI.getProfile(userId)
@@ -37,8 +35,17 @@ export const profileAPI = {
 
     },
 
-    updateStatus(status:string) {
+    updateStatus(status: string) {
         return instance.put(`profile/status`, {status}).then(response => response.data)
+    },
+    savePhoto(photo: any) {
+        let formData = new FormData()
+        formData.append('image', photo)
+        return instance.put('/profile/photo', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        }).then(response => response.data)
     }
 }
 export const authAPI = {

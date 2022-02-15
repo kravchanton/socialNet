@@ -1,5 +1,5 @@
 import {PostsType} from "./store";
-import {ProfilePageType} from "../components/Profile/profile";
+import profile, {ProfilePageType} from "../components/Profile/profile";
 import React from "react";
 import {profileAPI, usersAPI} from "../api/api";
 
@@ -7,6 +7,7 @@ import {profileAPI, usersAPI} from "../api/api";
 export type AddActionType = ReturnType<typeof addPostActionCreator>
 export type SetUserProfileType = ReturnType<typeof setUserProfile>
 export type GetStatusProfileType = ReturnType<typeof getStatusProfile>
+export type SavePhotoSuccessType = ReturnType<typeof savePhotoSuccess>
 
 export const addPostActionCreator = (text: string) => {
     return {type: "ADD-POST", text} as const
@@ -16,6 +17,9 @@ export const setUserProfile = (profile: any) => {
 }
 export const getStatusProfile = (status: string) => {
     return {type: "GET-STATUS", status} as const
+}
+export const savePhotoSuccess = (photo: object) => {
+    return {type: "SAVE-PHOTO-SUCCESS", photo} as const
 }
 
 
@@ -46,38 +50,50 @@ export const profileReducer = (state: ProfilePageType = initialState, action: Ac
         }
         case "GET-STATUS": {
             return {...state, status: action.status}
-
         }
+        case "SAVE-PHOTO-SUCCESS": {
+            return {...state, profile: {...state.profile, photos: action.photo}}}
+
+
         default:
             return state
+        }
     }
-}
 
-export type ActionType = AddActionType | SetUserProfileType | GetStatusProfileType
+    export type ActionType = AddActionType | SetUserProfileType | GetStatusProfileType | SavePhotoSuccessType
 
-export const getProfile = (userId: number) => {
-    return (dispatch: any) => {
-        usersAPI.getProfile(userId).then(response => {
-            dispatch(setUserProfile(response))
+    export const getProfile = (userId: number) => {
+        return (dispatch: any) => {
+            usersAPI.getProfile(userId).then(response => {
+                dispatch(setUserProfile(response))
 
-        })
+            })
+        }
     }
-}
 
-export const getStatus = (userId: number) => {
-    return (dispatch: any) => {
-        profileAPI.getStatus(userId).then(response => {
-            dispatch(getStatusProfile(response))
+    export const getStatus = (userId: number) => {
+        return (dispatch: any) => {
+            profileAPI.getStatus(userId).then(response => {
+                dispatch(getStatusProfile(response))
 
-        })
+            })
+        }
     }
-}
-export const updateStatus = (status: string) => {
-    return (dispatch: any) => {
-        profileAPI.updateStatus(status).then(response => {
-            if (response.resultCode === 0) {
-                dispatch(getStatusProfile(status))
-            }
-        })
+    export const updateStatus = (status: string) => {
+        return (dispatch: any) => {
+            profileAPI.updateStatus(status).then(response => {
+                if (response.resultCode === 0) {
+                    dispatch(getStatusProfile(status))
+                }
+            })
+        }
     }
-}
+    export const savePhoto = (photo: any) => {
+        return (dispatch: any) => {
+            profileAPI.savePhoto(photo).then(response => {
+                if (response.resultCode === 0) {
+                    dispatch(savePhotoSuccess(response.data.photos))
+                }
+            })
+        }
+    }
