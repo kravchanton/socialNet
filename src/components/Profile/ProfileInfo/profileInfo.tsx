@@ -30,10 +30,12 @@ const ProfileInfo = (props: any) => {
                 <div>Full Name: {props.profile.fullName}</div>
 
                 <div>About Me: {props.profile.aboutMe}</div>
-                <ul className={classes.contacts}>Contacts: <li>{!props.profile.contacts.facebook && 'facebook'}</li>
-                    <li>{!props.profile.contacts.vk && 'vk'}</li>
-                    <li>{!props.profile.contacts.github && 'github'}</li>
+                <ul className={classes.contacts}>Contacts: <li>{!!props.profile.contacts.facebook ? props.profile.contacts.vk : 'facebook'}</li>
+                    <li>{!!props.profile.contacts.vk ? props.profile.contacts.vk : 'vk'}</li>
+                    <li>{!!props.profile.contacts.github ? props.profile.contacts.github : 'github'}</li>
                 </ul>
+                <div>Looking for a job: {props.profile.lookingForAJob ? "Yes" : "No"}
+                </div>
 
             </div>
         </div>
