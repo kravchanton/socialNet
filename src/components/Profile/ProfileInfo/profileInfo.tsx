@@ -23,7 +23,7 @@ const ProfileInfo = (props: any) => {
             <div className={classes.logo}><img
                 src={props.profile.photos.large ? props.profile.photos.large : userPhoto}
                 alt="" onClick={() => myRef && myRef.current && myRef.current.click()}/>
-                {props.isOwner && <input type={'file'} onChange={savePhotos} ref={myRef}  style={{display: 'none'}}/>}
+                {props.isOwner && <input type={'file'} onChange={savePhotos} ref={myRef} style={{display: 'none'}}/>}
                 <div><ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/></div>
             </div>
             <div className={classes.profileInfo}>
@@ -31,8 +31,8 @@ const ProfileInfo = (props: any) => {
 
                 <div>About Me: {props.profile.aboutMe}</div>
                 <ul className={classes.contacts}>Contacts: <li>{!!props.profile.contacts.facebook ? props.profile.contacts.vk : 'facebook'}</li>
-                    <li>{!!props.profile.contacts.vk ? props.profile.contacts.vk : 'vk'}</li>
-                    <li>{!!props.profile.contacts.github ? props.profile.contacts.github : 'github'}</li>
+                    <li>{!!props.profile.contacts.vk ? props.profile.contacts.vk : ''}</li>
+                    <li>{!!props.profile.contacts.github ? props.profile.contacts.github : ''}</li>
                 </ul>
                 <div>Looking for a job: {props.profile.lookingForAJob ? "Yes" : "No"}
                 </div>
